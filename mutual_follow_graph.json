@@ -1,0 +1,3718 @@
+{
+    "links": [
+        {
+            "source": "AMCarwyn",
+            "target": "AlunDaviesAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "Amanwy"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "AngelaBurnsAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "Carl4AandD"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "DarrenMillarAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "DavidReesAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "Dawn_Bowden"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "ElinCeredigion"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "JGriffithsLab"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "JaneHutt"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "MarkReckless"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "russ_george"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "AMCarwyn",
+            "target": "vaughangething"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "Amanwy"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "AngelaBurnsAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "Carl4AandD"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "DarrenMillarAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "DavidReesAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "Dawn_Bowden"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "ElinCeredigion"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "JGriffithsLab"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "JaneHutt"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "AlunDaviesAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "Amanwy",
+            "target": "AngelaBurnsAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "Carl4AandD"
+        },
+        {
+            "source": "Amanwy",
+            "target": "DarrenMillarAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "DavidReesAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "DavidRowlandsAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "Dawn_Bowden"
+        },
+        {
+            "source": "Amanwy",
+            "target": "ElinCeredigion"
+        },
+        {
+            "source": "Amanwy",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "Amanwy",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "Amanwy",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "Amanwy",
+            "target": "JGriffithsLab"
+        },
+        {
+            "source": "Amanwy",
+            "target": "JaneHutt"
+        },
+        {
+            "source": "Amanwy",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "Amanwy",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "Amanwy",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "Amanwy",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "Amanwy",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "LeanneWood"
+        },
+        {
+            "source": "Amanwy",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "Amanwy",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "Amanwy",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "Amanwy",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "NathanGillMEP"
+        },
+        {
+            "source": "Amanwy",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "Amanwy",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "Amanwy",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "Amanwy",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "Amanwy",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "Amanwy",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "Amanwy",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "Amanwy",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "Amanwy",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "Amanwy",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "Amanwy",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "Amanwy",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "Amanwy",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "Amanwy",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "Amanwy",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "Amanwy",
+            "target": "russ_george"
+        },
+        {
+            "source": "Amanwy",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "Amanwy",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "Amanwy",
+            "target": "vaughangething"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "AngelaBurnsAM"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "DarrenMillarAM"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "MarkReckless"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "NathanGillMEP"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "russ_george"
+        },
+        {
+            "source": "AndrewRTDavies",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "DarrenMillarAM"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "DavidReesAM"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "ElinCeredigion"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "Kirsty_Williams"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "AngelaBurnsAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "DavidReesAM"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "Dawn_Bowden"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "Carl4AandD",
+            "target": "vaughangething"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "ElinCeredigion"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "DaiLloydAM",
+            "target": "steffanlewis"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "DavidReesAM"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "DavidRowlandsAM"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "ElinCeredigion"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "Kirsty_Williams"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "NathanGillMEP"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "DarrenMillarAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "DavidRowlandsAM"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "Dawn_Bowden"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "JGriffithsLab"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "JaneHutt"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "DavidReesAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "GarethBennettAM"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "MarkReckless"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "DavidRowlandsAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "ElinCeredigion"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "JGriffithsLab"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "JaneHutt"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "Dawn_Bowden",
+            "target": "vaughangething"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "ElisThomasD"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "JaneHutt"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "Kirsty_Williams"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "LeanneWood"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "russ_george"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "steffanlewis"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "ElinCeredigion",
+            "target": "vaughangething"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "Eluned_Morgan"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "JGriffithsLab"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "Kirsty_Williams"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "LeanneWood"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "russ_george"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "ElisThomasD",
+            "target": "vaughangething"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "JBryantWales"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "JGriffithsLab"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "JaneHutt"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "Eluned_Morgan",
+            "target": "vaughangething"
+        },
+        {
+            "source": "GarethBennettAM",
+            "target": "JFinchSaunders"
+        },
+        {
+            "source": "GarethBennettAM",
+            "target": "MarkReckless"
+        },
+        {
+            "source": "GarethBennettAM",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "GarethBennettAM",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "JGriffithsLab"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "russ_george"
+        },
+        {
+            "source": "JBryantWales",
+            "target": "vaughangething"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "russ_george"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "JFinchSaunders",
+            "target": "vaughangething"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "JaneHutt"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "Kirsty_Williams"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "JGriffithsLab",
+            "target": "vaughangething"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "JennyRathbone"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "Kirsty_Williams"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "JaneHutt",
+            "target": "vaughangething"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "Jeremy_Miles"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "russ_george"
+        },
+        {
+            "source": "JennyRathbone",
+            "target": "vaughangething"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "JoyceWatsonam"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "russ_george"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "Jeremy_Miles",
+            "target": "vaughangething"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "JulieJamesAM"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "russ_george"
+        },
+        {
+            "source": "JoyceWatsonam",
+            "target": "vaughangething"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "JulieMorganLAB"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "JulieJamesAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "KenSkatesAM"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "Kirsty_Williams"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "JulieMorganLAB",
+            "target": "vaughangething"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "KenSkatesAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "Kirsty_Williams",
+            "target": "MarkDrakeford"
+        },
+        {
+            "source": "Kirsty_Williams",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "Kirsty_Williams",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "Kirsty_Williams",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "Kirsty_Williams",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "LeanneWood",
+            "target": "LlyrGruffydd"
+        },
+        {
+            "source": "LeanneWood",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "LeanneWood",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "LeanneWood",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "LeanneWood",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "LeanneWood",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "LeanneWood",
+            "target": "steffanlewis"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "MarkIsherwoodAM"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "russ_george"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "steffanlewis"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "LlyrGruffydd",
+            "target": "vaughangething"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "MickAntoniw1"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "russ_george"
+        },
+        {
+            "source": "MarkDrakeford",
+            "target": "vaughangething"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "MarkIsherwoodAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "MarkReckless",
+            "target": "NathanGillMEP"
+        },
+        {
+            "source": "MarkReckless",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "MarkReckless",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "MarkReckless",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "MarkReckless",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "MikeHedgesAM"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "MickAntoniw1",
+            "target": "vaughangething"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "MohammadAsghar"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "MikeHedgesAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "MishBrownAM",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "MohammadAsghar",
+            "target": "NeilUKIP"
+        },
+        {
+            "source": "MohammadAsghar",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "MohammadAsghar",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "MohammadAsghar",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "MohammadAsghar",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "MohammadAsghar",
+            "target": "russ_george"
+        },
+        {
+            "source": "MohammadAsghar",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "MohammadAsghar",
+            "target": "vaughangething"
+        },
+        {
+            "source": "NathanGillMEP",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "NickRamsayAM"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "russ_george"
+        },
+        {
+            "source": "NeilUKIP",
+            "target": "vaughangething"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "RebeccaEvansAM"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "RhunapIorwerth"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "NickRamsayAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "carolineUKIP"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "russ_george"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "RebeccaEvansAM",
+            "target": "vaughangething"
+        },
+        {
+            "source": "RhunapIorwerth",
+            "target": "SimonThomasAC"
+        },
+        {
+            "source": "RhunapIorwerth",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "RhunapIorwerth",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "RhunapIorwerth",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "RhunapIorwerth",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "RhunapIorwerth",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "RhunapIorwerth",
+            "target": "steffanlewis"
+        },
+        {
+            "source": "RhunapIorwerth",
+            "target": "vaughangething"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "VikkiHowells"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "_Adam_Price"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "steffanlewis"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "SimonThomasAC",
+            "target": "vaughangething"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "ann_jonesam"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "VikkiHowells",
+            "target": "vaughangething"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "russ_george"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "steffanlewis"
+        },
+        {
+            "source": "_Adam_Price",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "ann_jonesam",
+            "target": "bethanjenkins"
+        },
+        {
+            "source": "ann_jonesam",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "ann_jonesam",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "ann_jonesam",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "ann_jonesam",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "ann_jonesam",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "ann_jonesam",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "ann_jonesam",
+            "target": "vaughangething"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "hannahblythyn"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "russ_george"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "steffanlewis"
+        },
+        {
+            "source": "bethanjenkins",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "carolineUKIP",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "carolineUKIP",
+            "target": "vaughangething"
+        },
+        {
+            "source": "hannahblythyn",
+            "target": "hef4caerphilly"
+        },
+        {
+            "source": "hannahblythyn",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "hannahblythyn",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "hannahblythyn",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "hannahblythyn",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "hannahblythyn",
+            "target": "russ_george"
+        },
+        {
+            "source": "hannahblythyn",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "hannahblythyn",
+            "target": "vaughangething"
+        },
+        {
+            "source": "hef4caerphilly",
+            "target": "huw4ogmore"
+        },
+        {
+            "source": "hef4caerphilly",
+            "target": "lesley4wrexham"
+        },
+        {
+            "source": "hef4caerphilly",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "hef4caerphilly",
+            "target": "neiljmcevoy"
+        },
+        {
+            "source": "hef4caerphilly",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "hef4caerphilly",
+            "target": "russ_george"
+        },
+        {
+            "source": "hef4caerphilly",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "hef4caerphilly",
+            "target": "vaughangething"
+        },
+        {
+            "source": "huw4ogmore",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "huw4ogmore",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "huw4ogmore",
+            "target": "vaughangething"
+        },
+        {
+            "source": "lesley4wrexham",
+            "target": "lynne_neagle"
+        },
+        {
+            "source": "lesley4wrexham",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "lesley4wrexham",
+            "target": "vaughangething"
+        },
+        {
+            "source": "lynne_neagle",
+            "target": "rhi4islwyn"
+        },
+        {
+            "source": "lynne_neagle",
+            "target": "vaughangething"
+        },
+        {
+            "source": "neiljmcevoy",
+            "target": "russ_george"
+        },
+        {
+            "source": "neiljmcevoy",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "neiljmcevoy",
+            "target": "vaughangething"
+        },
+        {
+            "source": "rhi4islwyn",
+            "target": "siangwenfelin"
+        },
+        {
+            "source": "rhi4islwyn",
+            "target": "vaughangething"
+        },
+        {
+            "source": "russ_george",
+            "target": "suzydaviesam"
+        },
+        {
+            "source": "russ_george",
+            "target": "vaughangething"
+        },
+        {
+            "source": "siangwenfelin",
+            "target": "steffanlewis"
+        }
+    ],
+    "nodes": [
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "_Adam_Price",
+            "name": "Adam Price",
+            "id": "_Adam_Price"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "AlunDaviesAM",
+            "name": "Alun Davies",
+            "id": "AlunDaviesAM"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "AndrewRTDavies",
+            "name": "Andrew RT Davies",
+            "id": "AndrewRTDavies"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "AngelaBurnsAM",
+            "name": "Angela Burns",
+            "id": "AngelaBurnsAM"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "ann_jonesam",
+            "name": "Ann Jones",
+            "id": "ann_jonesam"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "bethanjenkins",
+            "name": "Bethan Jenkins",
+            "id": "bethanjenkins"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "Carl4AandD",
+            "name": "Carl Sargeant",
+            "id": "Carl4AandD"
+        },
+        {
+            "party": "UKIP",
+            "colour": "#70147a",
+            "twitter": "carolineUKIP",
+            "name": "Caroline Jones",
+            "id": "carolineUKIP"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "AMCarwyn",
+            "name": "Carwyn Jones",
+            "id": "AMCarwyn"
+        },
+        {
+            "party": "Independent",
+            "colour": "#eeeeee",
+            "twitter": "ElisThomasD",
+            "name": "Dafydd Elis-Thomas",
+            "id": "ElisThomasD"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "DaiLloydAM",
+            "name": "Dai Lloyd",
+            "id": "DaiLloydAM"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "DarrenMillarAM",
+            "name": "Darren Millar",
+            "id": "DarrenMillarAM"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "",
+            "name": "David Melding",
+            "id": ""
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "DavidReesAM",
+            "name": "David Rees",
+            "id": "DavidReesAM"
+        },
+        {
+            "party": "UKIP",
+            "colour": "#70147a",
+            "twitter": "DavidRowlandsAM",
+            "name": "David Rowlands",
+            "id": "DavidRowlandsAM"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "Dawn_Bowden",
+            "name": "Dawn Bowden",
+            "id": "Dawn_Bowden"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "ElinCeredigion",
+            "name": "Elin Jones",
+            "id": "ElinCeredigion"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "Eluned_Morgan",
+            "name": "Eluned Morgan",
+            "id": "Eluned_Morgan"
+        },
+        {
+            "party": "UKIP",
+            "colour": "#70147a",
+            "twitter": "GarethBennettAM",
+            "name": "Gareth Bennett",
+            "id": "GarethBennettAM"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "hannahblythyn",
+            "name": "Hannah Blythyn",
+            "id": "hannahblythyn"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "hef4caerphilly",
+            "name": "Hefin David",
+            "id": "hef4caerphilly"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "huw4ogmore",
+            "name": "Huw Irranca-Davies",
+            "id": "huw4ogmore"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "JaneHutt",
+            "name": "Jane Hutt",
+            "id": "JaneHutt"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "JFinchSaunders",
+            "name": "Janet Finch-Saunders",
+            "id": "JFinchSaunders"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "JBryantWales",
+            "name": "Jayne Bryant",
+            "id": "JBryantWales"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "JennyRathbone",
+            "name": "Jenny Rathbone",
+            "id": "JennyRathbone"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "Jeremy_Miles",
+            "name": "Jeremy Miles",
+            "id": "Jeremy_Miles"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "JGriffithsLab",
+            "name": "John Griffiths",
+            "id": "JGriffithsLab"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "JoyceWatsonam",
+            "name": "Joyce Watson",
+            "id": "JoyceWatsonam"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "JulieJamesAM",
+            "name": "Julie James",
+            "id": "JulieJamesAM"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "JulieMorganLAB",
+            "name": "Julie Morgan",
+            "id": "JulieMorganLAB"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "KenSkatesAM",
+            "name": "Ken Skates",
+            "id": "KenSkatesAM"
+        },
+        {
+            "party": "Liberal Democrat",
+            "colour": "#fdbb30",
+            "twitter": "Kirsty_Williams",
+            "name": "Kirsty Williams",
+            "id": "Kirsty_Williams"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "LeanneWood",
+            "name": "Leanne Wood",
+            "id": "LeanneWood"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "Amanwy",
+            "name": "Lee Waters",
+            "id": "Amanwy"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "lesley4wrexham",
+            "name": "Lesley Griffiths",
+            "id": "lesley4wrexham"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "LlyrGruffydd",
+            "name": "Llyr Huws Gruffydd",
+            "id": "LlyrGruffydd"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "lynne_neagle",
+            "name": "Lynne Neagle",
+            "id": "lynne_neagle"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "MarkDrakeford",
+            "name": "Mark Drakeford",
+            "id": "MarkDrakeford"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "MarkIsherwoodAM",
+            "name": "Mark Isherwood",
+            "id": "MarkIsherwoodAM"
+        },
+        {
+            "party": "UKIP",
+            "colour": "#70147a",
+            "twitter": "MarkReckless",
+            "name": "Mark Reckless",
+            "id": "MarkReckless"
+        },
+        {
+            "party": "UKIP",
+            "colour": "#70147a",
+            "twitter": "MishBrownAM",
+            "name": "Michelle Brown",
+            "id": "MishBrownAM"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "MickAntoniw1",
+            "name": "Mick Antoniw",
+            "id": "MickAntoniw1"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "MikeHedgesAM",
+            "name": "Mike Hedges",
+            "id": "MikeHedgesAM"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "MohammadAsghar",
+            "name": "Mohammad Asghar",
+            "id": "MohammadAsghar"
+        },
+        {
+            "party": "Independent",
+            "colour": "#eeeeee",
+            "twitter": "NathanGillMEP",
+            "name": "Nathan Gill",
+            "id": "NathanGillMEP"
+        },
+        {
+            "party": "UKIP",
+            "colour": "#70147a",
+            "twitter": "NeilUKIP",
+            "name": "Neil Hamilton",
+            "id": "NeilUKIP"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "neiljmcevoy",
+            "name": "Neil McEvoy",
+            "id": "neiljmcevoy"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "NickRamsayAM",
+            "name": "Nick Ramsay",
+            "id": "NickRamsayAM"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "",
+            "name": "Paul Davies",
+            "id": ""
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "RebeccaEvansAM",
+            "name": "Rebecca Evans",
+            "id": "RebeccaEvansAM"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "rhi4islwyn",
+            "name": "Rhianon Passmore",
+            "id": "rhi4islwyn"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "RhunapIorwerth",
+            "name": "Rhun Ap Iorwerth",
+            "id": "RhunapIorwerth"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "russ_george",
+            "name": "Russell George",
+            "id": "russ_george"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "siangwenfelin",
+            "name": "Sian Gwenllian",
+            "id": "siangwenfelin"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "SimonThomasAC",
+            "name": "Simon Thomas",
+            "id": "SimonThomasAC"
+        },
+        {
+            "party": "Plaid Cymru",
+            "colour": "#008142",
+            "twitter": "steffanlewis",
+            "name": "Steffan Lewis",
+            "id": "steffanlewis"
+        },
+        {
+            "party": "Conservative",
+            "colour": "#0087DC",
+            "twitter": "suzydaviesam",
+            "name": "Suzy Davies",
+            "id": "suzydaviesam"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "vaughangething",
+            "name": "Vaughan Gething",
+            "id": "vaughangething"
+        },
+        {
+            "party": "Labour",
+            "colour": "#dc241f",
+            "twitter": "VikkiHowells",
+            "name": "Vikki Howells",
+            "id": "VikkiHowells"
+        }
+    ]
+}
