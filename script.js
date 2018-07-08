@@ -25,9 +25,9 @@ var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) {
         return d.id;
     })
-    .strength(0.475))
+    .strength(0.6))
     // push nodes apart to space them out
-    .force("charge", d3.forceManyBody().strength(-60))
+    .force("charge", d3.forceManyBody().strength(-100))
     // add some collision detection so they don't overlap
     .force("collide", d3.forceCollide().radius(15))
     // and draw them around the centre of the space
@@ -70,8 +70,10 @@ d3.json("clean_scalar_data.json", function(error, graph) {
     // hover text for the node
     node.append("title")
         .text(function(d) {
-            return d.twitter;
+            return d.url;
         });
+    node.append("svg:a")
+        .attr("xlink:href", function(d){return d.url;});
 
     // add a label to each node
     node.append("text")
