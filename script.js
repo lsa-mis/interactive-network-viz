@@ -80,6 +80,7 @@ d3.json("clean_scalar_data.json", function(error, graph) {
         .attr("dx", 12)
         .style("font-size", "14px")
         .attr("dy", ".6em")
+        .attr( "opacity", 0.8 )
         .text(function(d) {
             return d.name;
         })
