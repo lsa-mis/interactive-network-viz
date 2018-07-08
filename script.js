@@ -1,5 +1,5 @@
 // dimensions
-var width = 1000;
+var width = 1400;
 var height = 1000;
 
 var margin = {
@@ -27,9 +27,9 @@ var simulation = d3.forceSimulation()
     })
     .strength(0.6))
     // push nodes apart to space them out
-    .force("charge", d3.forceManyBody().strength(-100))
+    .force("charge", d3.forceManyBody().strength(-120))
     // add some collision detection so they don't overlap
-    .force("collide", d3.forceCollide().radius(15))
+    .force("collide", d3.forceCollide().radius(11))
     // and draw them around the centre of the space
     .force("center", d3.forceCenter(width / 2, height / 2));
 
@@ -54,17 +54,21 @@ d3.json("clean_scalar_data.json", function(error, graph) {
     var node = svg.selectAll(".node")
         .data(nodes)
         .enter().append("g")
+        .call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));  
 
     // a circle to represent the node
     node.append("circle")
         .attr("class", "node")
-        .attr("r", 6)
+        .attr("r", 5)
         // .attr("fill", function(d) {
         //     return d.colour;
         // })
         .attr("fill", 'teal')
         
-        .on("mouseover", mouseOver(.1))
+        .on("mouseover", mouseOver(.15))
         .on("mouseout", mouseOut);
 
     // hover text for the node
@@ -183,5 +187,21 @@ d3.json("clean_scalar_data.json", function(error, graph) {
         link.style("stroke-opacity", 1);
         link.style("stroke", "#ddd");
     }
+    function dragstarted(d) {
+        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+    }
+    
+    function dragged(d) {
+        d.fx = d3.event.x;
+        d.fy = d3.event.y;
+    }
+    
+    function dragended(d) {
+        if (!d3.event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+    } 
 
 });
