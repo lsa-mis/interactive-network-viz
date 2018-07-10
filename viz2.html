@@ -4,15 +4,22 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
+var dragSubjectForFade = null;
+var currentlyDragging = false;
+
+var mousePosX = 0;
+var mousePosY = 0;
 var canvas = document.querySelector("canvas"),
     context = canvas.getContext("2d"),
     width = canvas.width,
     height = canvas.height;
 
 var simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
-    .force("center", d3.forceCenter(width / 2, height / 2));
+    .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.2))
+    .force("charge", d3.forceManyBody().strength(-70))
+    .force("collide", d3.forceCollide().radius(12))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+
 
 d3.json("clean_scalar_data.json", function(error, graph) {
   if (error) throw error;
@@ -31,6 +38,10 @@ d3.json("clean_scalar_data.json", function(error, graph) {
           .on("start", dragstarted)
           .on("drag", dragged)
           .on("end", dragended));
+      
+    d3.select(canvas.nodes).on('mou', function(){
+    });
+
 
   function ticked() {
     context.clearRect(0, 0, width, height);
@@ -40,10 +51,18 @@ d3.json("clean_scalar_data.json", function(error, graph) {
     context.strokeStyle = "#aaa";
     context.stroke();
 
+    context.fillStyle = 'teal';
     context.beginPath();
     graph.nodes.forEach(drawNode);
-//    graph.nodes.forEach(drawLabel);
+    context.closePath();
     context.fill();
+
+    context.fillStyle = 'black';
+    context.beginPath();
+    graph.nodes.forEach(drawLabel);
+    context.closePath();
+    context.fill();
+
     context.strokeStyle = "#fff";
     context.stroke();
   }
@@ -51,10 +70,15 @@ d3.json("clean_scalar_data.json", function(error, graph) {
   function dragsubject() {
     return simulation.find(d3.event.x, d3.event.y);
   }
-});
+
 
 function dragstarted() {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  console.log(d3.event.subject);
+  
+  dragSubjectForFade = d3.event.subject;
+  currentlyDragging = true;
+
   d3.event.subject.fx = d3.event.subject.x;
   d3.event.subject.fy = d3.event.subject.y;
 }
@@ -68,6 +92,8 @@ function dragended() {
   if (!d3.event.active) simulation.alphaTarget(0);
   d3.event.subject.fx = null;
   d3.event.subject.fy = null;
+  currentlyDragging = false;
+  dragSubjectForFade = null;
 }
 
 function drawLink(d) {
@@ -77,19 +103,40 @@ function drawLink(d) {
 
 function drawNode(d) {
   context.moveTo(d.x + 3, d.y);
-  context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
-  self.drawLabel(d);
+  context.arc(d.x, d.y, 2, 0, 2 * Math.PI);
+  if (currentlyDragging)
+  { if (d != dragSubjectForFade) 
+    {   if (isConnected(d, dragSubjectForFade)) context.arc(d.x, d.y, 5, 0, 2 * Math.PI);
+      ; 
+    } else 
+    {
+      context.arc(d.x, d.y, 5, 0, 2 * Math.PI);
+    }
+  }
+      ;
   
 }
 
 function drawLabel(d) {
-    context.font = '14px Helvetica'
-    context.fillText(d.name, d.x + 5, d.y)
+    if (currentlyDragging && (d != dragSubjectForFade && !isConnected(d, dragSubjectForFade))){
+      context.font = '8px Helvetica';
+    } else {    context.font = '14px Helvetica'};
+
+    context.fillText(d.name, d.x + 5, d.y);
 
   
 }
     
 
+var linkedByIndex = {};
+graph.links.forEach(function(d) {
+    linkedByIndex[d.source.index + "," + d.target.index] = 1;
+});
 
+// check the dictionary to see if nodes are linked
+function isConnected(a, b) {
+    return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+}
 
+});
 </script>
