@@ -18,11 +18,11 @@ var canvas = document.querySelector("canvas"),
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.2))
-    .force("charge", d3.forceManyBody().strength(-80))
+    .force("charge", d3.forceManyBody().strength(-160))
     .force("collide", d3.forceCollide().radius(18))
     .force("center", d3.forceCenter(width / 2, height / 2))
-    .force("forceX", d3.forceX(width/2).strength(0.04) )
-    .force("forceY", d3.forceY(height/2).strength(0.04) );
+    .force("forceX", d3.forceX(width/2).strength(0.08) )
+    .force("forceY", d3.forceY(height/2).strength(0.08) );
 
 
 d3.json("clean_scalar_data.json", function(error, graph) {
