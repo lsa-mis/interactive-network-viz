@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<canvas width="1000" height="1000"></canvas>
+
+
+<canvas width="1200" height="1000"></canvas>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
@@ -16,9 +18,11 @@ var canvas = document.querySelector("canvas"),
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.2))
-    .force("charge", d3.forceManyBody().strength(-70))
-    .force("collide", d3.forceCollide().radius(12))
+    .force("charge", d3.forceManyBody().strength(-80))
+    .force("collide", d3.forceCollide().radius(18))
     .force("center", d3.forceCenter(width / 2, height / 2))
+    .force("forceX", d3.forceX(width/2).strength(0.04) )
+    .force("forceY", d3.forceY(height/2).strength(0.04) );
 
 
 d3.json("clean_scalar_data.json", function(error, graph) {
@@ -37,9 +41,10 @@ d3.json("clean_scalar_data.json", function(error, graph) {
           .subject(dragsubject)
           .on("start", dragstarted)
           .on("drag", dragged)
-          .on("end", dragended));
+          .on("end", dragended))
       
-    d3.select(canvas.nodes).on('mou', function(){
+    d3.select(canvas.nodes).on('mouseover', function(){
+      console.log("test!");
     });
 
 
@@ -51,7 +56,7 @@ d3.json("clean_scalar_data.json", function(error, graph) {
     context.strokeStyle = "#aaa";
     context.stroke();
 
-    context.fillStyle = 'teal';
+    context.fillStyle = 'rgba(0, 128, 128, 0.7';
     context.beginPath();
     graph.nodes.forEach(drawNode);
     context.closePath();
@@ -74,7 +79,7 @@ d3.json("clean_scalar_data.json", function(error, graph) {
 
 function dragstarted() {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-  console.log(d3.event.subject);
+  // console.log(d3.event.subject);
   
   dragSubjectForFade = d3.event.subject;
   currentlyDragging = true;
@@ -90,6 +95,10 @@ function dragged() {
 
 function dragended() {
   if (!d3.event.active) simulation.alphaTarget(0);
+  console.log(d3.event.subject.url);
+
+  // create a possibility to go to this URL
+  window.open(d3.event.subject.url, '_blank');
   d3.event.subject.fx = null;
   d3.event.subject.fy = null;
   currentlyDragging = false;
@@ -104,13 +113,16 @@ function drawLink(d) {
 function drawNode(d) {
   context.moveTo(d.x + 3, d.y);
   context.arc(d.x, d.y, 2, 0, 2 * Math.PI);
+
+  // draw nodes that are either being dragged or immediate neighbor
+
   if (currentlyDragging)
   { if (d != dragSubjectForFade) 
-    {   if (isConnected(d, dragSubjectForFade)) context.arc(d.x, d.y, 5, 0, 2 * Math.PI);
+    {   if (isConnected(d, dragSubjectForFade)) context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
       ; 
     } else 
     {
-      context.arc(d.x, d.y, 5, 0, 2 * Math.PI);
+      context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
     }
   }
       ;
@@ -119,8 +131,18 @@ function drawNode(d) {
 
 function drawLabel(d) {
     if (currentlyDragging && (d != dragSubjectForFade && !isConnected(d, dragSubjectForFade))){
-      context.font = '8px Helvetica';
-    } else {    context.font = '14px Helvetica'};
+      context.fillStyle = 'rgba(0, 0, 0, 0.78';
+      context.font = '10px Helvetica';
+    } else if (currentlyDragging && d == dragSubjectForFade){
+      context.fillStyle = 'black';
+      context.font = '32px Helvetica';
+    } else if (currentlyDragging && (isConnected(d, dragSubjectForFade))){
+      context.fillStyle = 'rgba(0, 0, 0, 0.8';
+      context.font = '20px Helvetica';
+
+    } else    {    
+      context.fillStyle = 'black';
+      context.font = '12px Helvetica'};
 
     context.fillText(d.name, d.x + 5, d.y);
 
