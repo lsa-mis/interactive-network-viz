@@ -79,7 +79,11 @@ for node in nodes_identified_in_links:
         # print(urls[0])
         soup = BeautifulSoup(content, "html.parser")
         imageURL = soup.find("a")["href"]
-        description = soup.text       
+        description = soup.text
+
+        # ceate an abbreviated description (to encourage users to go to Scalar for full description)
+        if len(description) > 80:
+            description = description[0:100] + "..."
     
 
     # get rid of part of URL after period (multiple versions in Scalar)

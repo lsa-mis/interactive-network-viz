@@ -77,12 +77,12 @@
       height = canvas.height;
 
   var simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.2))
-      .force("charge", d3.forceManyBody().strength(-160))
-      .force("collide", d3.forceCollide().radius(18))
+      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.3))
+      .force("charge", d3.forceManyBody().strength(-390))
+      .force("collide", d3.forceCollide().radius(19))
       .force("center", d3.forceCenter(width / 2 - 200, height / 2))
-      .force("forceX", d3.forceX(width/2).strength(0.08) )
-      .force("forceY", d3.forceY(height/2).strength(0.08) );
+      .force("forceX", d3.forceX(width/2).strength(0.11) )
+      .force("forceY", d3.forceY(height/2).strength(0.16) );
 
 
   d3.json("clean_scalar_data.json", function(error, graph) {
@@ -116,7 +116,7 @@
       context.strokeStyle = "#aaa";
       context.stroke();
 
-      context.fillStyle = 'rgba(0, 128, 128, 0.5';
+      context.fillStyle = 'rgba(0, 128, 128, 0.75)';
       context.beginPath();
       graph.nodes.forEach(drawNode);
       context.closePath();
@@ -236,12 +236,24 @@
         context.fillStyle = 'black';
         context.font = '32px Helvetica';
       } else if (currentlyDragging && (isConnected(d, dragSubjectForFade))){
-        context.fillStyle = 'rgba(0, 0, 0, 0.8';
+        context.fillStyle = 'rgba(0, 0, 0, 0.8)';
         context.font = '20px Helvetica';
 
-      } else    {    
-        context.fillStyle = 'black';
-        context.font = '13px Helvetica'};
+      } else    {
+        
+        
+        if (d.extraData == "yes"){
+          context.fillStyle = 'rgba(0, 0, 0, 0.99)';
+          context.font = 'small-caps 13px Helvetica ';
+
+        } else {   
+        context.fillStyle = 'rgba(0, 0, 0, 0.8)';
+        context.font = '13px Helvetica';
+        }
+      
+      
+      
+      };
 
       context.fillText(d.name, d.x + 5, d.y);
 
