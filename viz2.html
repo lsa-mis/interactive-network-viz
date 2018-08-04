@@ -4,13 +4,16 @@
 <html>
   <style>
     /* The Overlay (background) */
+    body {
+      font-family: Arial;
+    }
     .overlay {
       /* Height & width depends on how you want to reveal the overlay (see JS below) */   
       height: 100%;
-      width: 30%;
+      width: 25%;
       position: fixed; /* Stay in place */
       z-index: 1; /* Sit on top */
-      left: 70%;
+      left: 75%;
       top: 0;
       background-color: rgba(0,0,0, 0.8); /* Black w/opacity */
     }
@@ -22,16 +25,19 @@
       background-color: rgba(255, 255, 255, 0.9); /* Black w/opacity */
     }
     .overlay-box a {
+      padding: 5%;
       font-size: 20px;
       text-decoration: none;
     }
     .overlay-box h2 {
       text-align: center;
+      margin: 8px;
     }
 
     #sidebar-content {
       margin: 10%;
       padding: 10px;
+      line-height: 1.3;
       border-radius: 5px;
       background-color: rgba(255, 255, 255, 0); /* Black w/opacity */
       
@@ -164,7 +170,7 @@
       document.getElementById("sidebar-content").classList.add("active");
       imageURL = d3.event.subject.imageURL;
       description = d3.event.subject.description;
-      document.getElementById("sidebar-content").innerHTML = description;
+      document.getElementById("sidebar-content").innerHTML = description + "<br><hr >";
       var elem = document.createElement("img");
       elem.setAttribute("src", imageURL);
       elem.setAttribute("height", "100%");
@@ -231,24 +237,24 @@
   function drawLabel(d) {
       if (currentlyDragging && (d != dragSubjectForFade && !isConnected(d, dragSubjectForFade))){
         context.fillStyle = 'rgba(0, 0, 0, 0.78';
-        context.font = '10px Helvetica';
+        context.font = '10px Arial';
       } else if (currentlyDragging && d == dragSubjectForFade){
         context.fillStyle = 'black';
-        context.font = '32px Helvetica';
+        context.font = '32px Arial';
       } else if (currentlyDragging && (isConnected(d, dragSubjectForFade))){
         context.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        context.font = '20px Helvetica';
+        context.font = '20px Arial';
 
       } else    {
         
         
         if (d.extraData == "yes"){
           context.fillStyle = 'rgba(0, 0, 0, 0.99)';
-          context.font = 'small-caps 13px Helvetica ';
+          context.font = 'small-caps 13px Arial ';
 
         } else {   
         context.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        context.font = '13px Helvetica';
+        context.font = '13px Arial';
         }
       
       
