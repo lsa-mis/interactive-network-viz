@@ -1,4 +1,11 @@
-import json
+import json, re
+from bs4 import BeautifulSoup
+
+
+# Dicts and lists to store network information
+# This will be used to assemble a network viz later
+# With the specification of tags in a "links" sub-dictionary
+# and node descriptions in a "nodes" sub-dictionary
 
 data_for_viz = []
 reference_dict = {}
@@ -6,8 +13,9 @@ final_list_links = []
 final_list_nodes = []
 nodes_identified_in_links = []
 
-input_file = "scalar_dump_07_29_2018.json"
-output_file = "cleaned.json"
+
+input_file = "scalar_output.json"
+output_file = "cleaned_test.json"
 
 with open(input_file, "r", encoding="utf-8") as read_file:
     data = json.load(read_file, strict=False)
@@ -21,6 +29,12 @@ for item in data_for_viz:
     if 'urn:scalar:tag:' in item['key']:
         body = item['http://www.openannotation.org/ns/hasBody'][0]['value']
         target = item['http://www.openannotation.org/ns/hasTarget'][0]['value']
+
+        # ignore tags here that involve media nodes (almost always images)
+
+        if 'media' in body or 'media' in target:
+            continue
+        
         if body not in nodes_identified_in_links:
             nodes_identified_in_links.append(body)
 
@@ -38,13 +52,35 @@ for item in data_for_viz:
         }
         
         final_list_links.append(tag_dict)
-print(nodes_identified_in_links)
+# print(nodes_identified_in_links)
 
 for node in nodes_identified_in_links:
     current_node_dict = reference_dict[node]
     url = node
     _id = node
     _name = ""
+    photoURL = ""
+    description = ""
+    extraData = "no"
+
+    # look for reference to media
+    references = current_node_dict.get("http://purl.org/dc/terms/references")
+    mediaReferenced = None
+    imageURL = None
+    description = None
+    if references:
+        if "media" in references[0]["value"]:
+            mediaReferenced = references[0]["value"]
+    if mediaReferenced:
+        # if reference to media found, fetch URL and description from media page
+        print("\n")
+        content = reference_dict[node]["http://rdfs.org/sioc/ns#content"][0]['value']
+        # urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', content)
+        # print(urls[0])
+        soup = BeautifulSoup(content, "html.parser")
+        imageURL = soup.find("a")["href"]
+        description = soup.text       
+    
 
     # get rid of part of URL after period (multiple versions in Scalar)
     if url[-2] == '.':
@@ -56,63 +92,36 @@ for node in nodes_identified_in_links:
 
     
     try:
+        # make sure the node is fetching the name correctly, assign to _name
         _name = current_node_dict['http://purl.org/dc/terms/title'][0]['value']
         # print(title)
 
     except:
-        name = node
+        _name = node
 
     node_out = {
         'id' : _id,
         'name' : _name,
         'url' : url,
-        'party':	"Labour",
         'colour':	"#2a2a2a"
     }
-    print(node_out)
+
+    if imageURL:
+        node_out["imageURL"] = imageURL
+        extraData = "yes"
+    if description:
+        node_out["description"] = description
+        extraData = "yes"
+    node_out["extraData"] = extraData
+
 
     final_list_nodes.append(node_out)
 
-            # print('no title')
-        
-        # try:
-        #     for ref in item['http://purl.org/dc/terms/references']:
-        #         references.append(ref['value'])
-        #     # print(references)
-        # except:
-        #     pass
-        #     # print('no references')
-        
-        # try:
-        #    for refBy in item['http://purl.org/dc/terms/isReferencedBy']:
-        #        isReferencedBy.append(refBy['value'])               
-        #     # print(isReferencedBy)
-        # except:
-        #     pass
-        #     # print('no referenced by')
-        
-        # # isPriorVersion = False
-        # # # try:
-        # # #     if '.' in url[-4:]:
-        # # #         isPriorVersion = True
-        # # # except:
-        # # #     pass
-
-        # if not isPriorVersion:
-        #     final_out_dict[url] = {
-        #         'url': url,
-        #         'title': title,
-        #         'references': references,
-        #         'isReferencedBy': isReferencedBy
-        #     }
-        #     if len(references) > 0:
-        #         print(final_out_dict[url].items())
-    
 final_output = {}
 final_output['links'] = final_list_links
 final_output['nodes'] = final_list_nodes
 
-print(final_output['nodes'])
+# print(final_output['nodes'])
 
 
 with open(output_file, "w") as write_file:

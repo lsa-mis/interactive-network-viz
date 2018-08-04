@@ -1,164 +1,263 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
+<html>
+  <style>
+    /* The Overlay (background) */
+    .overlay {
+      /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+      height: 100%;
+      width: 30%;
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 70%;
+      top: 0;
+      background-color: rgba(0,0,0, 0.8); /* Black w/opacity */
+    }
 
-<canvas width="1200" height="1000"></canvas>
+    .overlay-box {
+      margin: 10%;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.9); /* Black w/opacity */
+    }
+    .overlay-box a {
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .overlay-box h2 {
+      text-align: center;
+    }
+
+    #sidebar-content {
+      margin: 10%;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0); /* Black w/opacity */
+      
+
+    }
+    #sidebar-content.active {
+      background-color: rgba(255, 255, 255, 0.9); /* Black w/opacity */
+      
+
+    }
+  </style>
+  <body>
+      <div id="viz" style="height: 100%; width: 67%">
+        <canvas width="1200" height="800"></canvas>
+      </div>
+      <div id="network-viz-sidebar" class="overlay">
+        <div class = "overlay-box">
+          <h2 id="sidebar-headline">  Visualize the unique convergences of people as networks that change over time. </h2>        
+          <div id="sidebar-link"></div>
+
+        </div>
+        <div id="sidebar-content"></div>
+        </div>
+      </div>
+
+  </body>
+
+</html>
+
+
+
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var dragSubjectForFade = null;
-var currentlyDragging = false;
+  var dragSubjectForFade = null;
+  var currentlyDragging = false;
 
-var mousePosX = 0;
-var mousePosY = 0;
-var canvas = document.querySelector("canvas"),
-    context = canvas.getContext("2d"),
-    width = canvas.width,
-    height = canvas.height;
+  var mousePosX = 0;
+  var mousePosY = 0;
+  var canvas = document.querySelector("canvas"),
+      context = canvas.getContext("2d"),
+      width = canvas.width,
+      height = canvas.height;
 
-var simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.2))
-    .force("charge", d3.forceManyBody().strength(-160))
-    .force("collide", d3.forceCollide().radius(18))
-    .force("center", d3.forceCenter(width / 2, height / 2))
-    .force("forceX", d3.forceX(width/2).strength(0.08) )
-    .force("forceY", d3.forceY(height/2).strength(0.08) );
+  var simulation = d3.forceSimulation()
+      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.2))
+      .force("charge", d3.forceManyBody().strength(-160))
+      .force("collide", d3.forceCollide().radius(18))
+      .force("center", d3.forceCenter(width / 2 - 200, height / 2))
+      .force("forceX", d3.forceX(width/2).strength(0.08) )
+      .force("forceY", d3.forceY(height/2).strength(0.08) );
 
 
-d3.json("clean_scalar_data.json", function(error, graph) {
-  if (error) throw error;
+  d3.json("clean_scalar_data.json", function(error, graph) {
+    if (error) throw error;
 
-  simulation
-      .nodes(graph.nodes)
-      .on("tick", ticked);
+    simulation
+        .nodes(graph.nodes)
+        .on("tick", ticked);
 
-  simulation.force("link")
-      .links(graph.links);
+    simulation.force("link")
+        .links(graph.links);
 
-  d3.select(canvas)
-      .call(d3.drag()
-          .container(canvas)
-          .subject(dragsubject)
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended))
+    d3.select(canvas)
+        .call(d3.drag()
+            .container(canvas)
+            .subject(dragsubject)
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended))
+        
+      d3.select(canvas.nodes).on('mouseover', function(){
+        console.log("test!");
+      });
+
+
+    function ticked() {
+      context.clearRect(0, 0, width, height);
+
+      context.beginPath();
+      graph.links.forEach(drawLink);
+      context.strokeStyle = "#aaa";
+      context.stroke();
+
+      context.fillStyle = 'rgba(0, 128, 128, 0.5';
+      context.beginPath();
+      graph.nodes.forEach(drawNode);
+      context.closePath();
+      context.fill();
+
+      context.fillStyle = 'black';
+      context.beginPath();
+      graph.nodes.forEach(drawLabel);
+      context.closePath();
+      context.fill();
+
+      context.strokeStyle = "#fff";
+      context.stroke();
+    }
+
+    function dragsubject() {
+      return simulation.find(d3.event.x, d3.event.y);
+    }
+
+
+  function dragstarted() {
+    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    // console.log(d3.event.subject);
+    
+    dragSubjectForFade = d3.event.subject;
+    currentlyDragging = true;
+
+    d3.event.subject.fx = d3.event.subject.x;
+    d3.event.subject.fy = d3.event.subject.y;
+
+    var sidebarHeadline = document.getElementById("sidebar-headline");
+    var sidebarLink = document.getElementById("sidebar-link");
+
+    sidebarHeadline.innerHTML = d3.event.subject.name;
+    var linkToScalar = document.createElement("a")
+    linkToScalar.setAttribute("href", d3.event.subject.url);
+    linkToScalar.setAttribute("target", "_blank");
+    linkToScalar.setAttribute("id", "scalarLink");
+    while (sidebarLink.firstChild) {
+      sidebarLink.removeChild(sidebarLink.firstChild);}
+    sidebarLink.appendChild(linkToScalar);
+    document.getElementById("scalarLink").innerHTML = "View the full page"
+
+    if(d3.event.subject.extraData == "yes"){
+      document.getElementById("sidebar-content").classList.add("active");
+      imageURL = d3.event.subject.imageURL;
+      description = d3.event.subject.description;
+      document.getElementById("sidebar-content").innerHTML = description;
+      var elem = document.createElement("img");
+      elem.setAttribute("src", imageURL);
+      elem.setAttribute("height", "100%");
+      elem.setAttribute("width", "100%");
+      elem.setAttribute("alt", description);
+      document.getElementById("sidebar-content").appendChild(elem);
       
-    d3.select(canvas.nodes).on('mouseover', function(){
-      console.log("test!");
-    });
+
+    } else {
+
+      document.getElementById("sidebar-content").classList.remove("active");
 
 
-  function ticked() {
-    context.clearRect(0, 0, width, height);
+      while (document.getElementById("sidebar-content").firstChild) {
+        document.getElementById("sidebar-content").removeChild(document.getElementById("sidebar-content").firstChild);
+    }
+      
 
-    context.beginPath();
-    graph.links.forEach(drawLink);
-    context.strokeStyle = "#aaa";
-    context.stroke();
-
-    context.fillStyle = 'rgba(0, 128, 128, 0.7';
-    context.beginPath();
-    graph.nodes.forEach(drawNode);
-    context.closePath();
-    context.fill();
-
-    context.fillStyle = 'black';
-    context.beginPath();
-    graph.nodes.forEach(drawLabel);
-    context.closePath();
-    context.fill();
-
-    context.strokeStyle = "#fff";
-    context.stroke();
-  }
-
-  function dragsubject() {
-    return simulation.find(d3.event.x, d3.event.y);
-  }
-
-
-function dragstarted() {
-  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-  // console.log(d3.event.subject);
-  
-  dragSubjectForFade = d3.event.subject;
-  currentlyDragging = true;
-
-  d3.event.subject.fx = d3.event.subject.x;
-  d3.event.subject.fy = d3.event.subject.y;
-}
-
-function dragged() {
-  d3.event.subject.fx = d3.event.x;
-  d3.event.subject.fy = d3.event.y;
-}
-
-function dragended() {
-  if (!d3.event.active) simulation.alphaTarget(0);
-  console.log(d3.event.subject.url);
-
-  // create a possibility to go to this URL
-  window.open(d3.event.subject.url, '_blank');
-  d3.event.subject.fx = null;
-  d3.event.subject.fy = null;
-  currentlyDragging = false;
-  dragSubjectForFade = null;
-}
-
-function drawLink(d) {
-  context.moveTo(d.source.x, d.source.y);
-  context.lineTo(d.target.x, d.target.y);
-}
-
-function drawNode(d) {
-  context.moveTo(d.x + 3, d.y);
-  context.arc(d.x, d.y, 2, 0, 2 * Math.PI);
-
-  // draw nodes that are either being dragged or immediate neighbor
-
-  if (currentlyDragging)
-  { if (d != dragSubjectForFade) 
-    {   if (isConnected(d, dragSubjectForFade)) context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
-      ; 
-    } else 
-    {
-      context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
     }
   }
-      ;
-  
-}
 
-function drawLabel(d) {
-    if (currentlyDragging && (d != dragSubjectForFade && !isConnected(d, dragSubjectForFade))){
-      context.fillStyle = 'rgba(0, 0, 0, 0.78';
-      context.font = '10px Helvetica';
-    } else if (currentlyDragging && d == dragSubjectForFade){
-      context.fillStyle = 'black';
-      context.font = '32px Helvetica';
-    } else if (currentlyDragging && (isConnected(d, dragSubjectForFade))){
-      context.fillStyle = 'rgba(0, 0, 0, 0.8';
-      context.font = '20px Helvetica';
+  function dragged() {
+    d3.event.subject.fx = d3.event.x;
+    d3.event.subject.fy = d3.event.y;
+  }
 
-    } else    {    
-      context.fillStyle = 'black';
-      context.font = '12px Helvetica'};
+  function dragended() {
+    if (!d3.event.active) simulation.alphaTarget(0);
+    console.log(d3.event.subject);
 
-    context.fillText(d.name, d.x + 5, d.y);
+    // create a possibility to go to this URL
+    // window.open(d3.event.subject.url, '_blank');
+    d3.event.subject.fx = null;
+    d3.event.subject.fy = null;
+    currentlyDragging = false;
+    dragSubjectForFade = null;
+  }
 
-  
-}
+  function drawLink(d) {
+    context.moveTo(d.source.x, d.source.y);
+    context.lineTo(d.target.x, d.target.y);
+  }
+
+  function drawNode(d) {
+    context.moveTo(d.x + 3, d.y);
+    context.arc(d.x, d.y, 2, 0, 2 * Math.PI);
+
+
+    // draw nodes that are either being dragged or immediate neighbor
+
+    if (currentlyDragging)
+    { if (d != dragSubjectForFade) 
+      {   if (isConnected(d, dragSubjectForFade)) context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+        ; 
+      } else 
+      {
+        context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+      }
+    }
+        ;
     
+  }
 
-var linkedByIndex = {};
-graph.links.forEach(function(d) {
-    linkedByIndex[d.source.index + "," + d.target.index] = 1;
-});
+  function drawLabel(d) {
+      if (currentlyDragging && (d != dragSubjectForFade && !isConnected(d, dragSubjectForFade))){
+        context.fillStyle = 'rgba(0, 0, 0, 0.78';
+        context.font = '10px Helvetica';
+      } else if (currentlyDragging && d == dragSubjectForFade){
+        context.fillStyle = 'black';
+        context.font = '32px Helvetica';
+      } else if (currentlyDragging && (isConnected(d, dragSubjectForFade))){
+        context.fillStyle = 'rgba(0, 0, 0, 0.8';
+        context.font = '20px Helvetica';
 
-// check the dictionary to see if nodes are linked
-function isConnected(a, b) {
-    return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
-}
+      } else    {    
+        context.fillStyle = 'black';
+        context.font = '13px Helvetica'};
 
-});
+      context.fillText(d.name, d.x + 5, d.y);
+
+    
+  }
+      
+
+  var linkedByIndex = {};
+  graph.links.forEach(function(d) {
+      linkedByIndex[d.source.index + "," + d.target.index] = 1;
+  });
+
+  // check the dictionary to see if nodes are linked
+  function isConnected(a, b) {
+      return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+  }
+
+  });
 </script>
