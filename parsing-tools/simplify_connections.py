@@ -1,6 +1,20 @@
 import json, re
 from bs4 import BeautifulSoup
+import networkx as nx
+import matplotlib.pyplot as plt
+import math
 
+# use networkx to generate betweennenss centrality for nodes and return as dict
+
+def generateBetweennessCentrality(links, nodes):
+    print(links)
+    print(nodes)
+    G=nx.Graph()
+    G.add_nodes_from(nodes)
+    G.add_edges_from(links)
+    nx.draw(G)
+    plt.show()
+    return nx.betweenness_centrality(G)
 
 # Dicts and lists to store network information
 # This will be used to assemble a network viz later
@@ -12,6 +26,7 @@ reference_dict = {}
 final_list_links = []
 final_list_nodes = []
 nodes_identified_in_links = []
+
 
 
 input_file = "scalar_output.json"
@@ -53,7 +68,6 @@ for item in data_for_viz:
         
         final_list_links.append(tag_dict)
 # print(nodes_identified_in_links)
-
 for node in nodes_identified_in_links:
     current_node_dict = reference_dict[node]
     url = node
@@ -121,13 +135,32 @@ for node in nodes_identified_in_links:
 
     final_list_nodes.append(node_out)
 
+
+
+# generate list of node names and edges that networkx can handle
+node_names = [node['id'] for node in final_list_nodes]
+edges_for_nx = [(n['source'],n['target']) for n in final_list_links]
+
+betweenness_centrality_scores = generateBetweennessCentrality(edges_for_nx, node_names)
+
 final_output = {}
 final_output['links'] = final_list_links
-final_output['nodes'] = final_list_nodes
 
+# will have to iterate over final_list_nodes and add bc scores and then add here sequentially
+final_output['nodes'] = []
+
+
+# now add betweenness centrality scores to node dicts
+
+for node in final_list_nodes:
+    current_bc_score = betweenness_centrality_scores[node['id']]
+    # let's convnert this to a 0 to 100 score, roundng up 
+    node['betweenness_centrality_score'] = math.ceil(current_bc_score * 100)
+    final_output['nodes'].append(node)
 # print(final_output['nodes'])
 
 
 with open(output_file, "w") as write_file:
     json.dump(final_output, write_file)
     print('clean data successfully written to disk as "data_file.json"')
+

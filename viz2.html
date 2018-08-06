@@ -22,7 +22,7 @@
       margin: 10%;
       padding: 10px;
       border-radius: 5px;
-      background-color: rgba(255, 255, 255, 0.9); /* Black w/opacity */
+      background-color: rgba(255, 255, 255, 1); /* Black w/opacity */
     }
     .overlay-box a {
       padding: 5%;
@@ -83,12 +83,12 @@
       height = canvas.height;
 
   var simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.3))
+      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.1))
       .force("charge", d3.forceManyBody().strength(-390))
-      .force("collide", d3.forceCollide().radius(19))
-      .force("center", d3.forceCenter(width / 2 - 200, height / 2))
-      .force("forceX", d3.forceX(width/2).strength(0.11) )
-      .force("forceY", d3.forceY(height/2).strength(0.16) );
+      .force("collide", d3.forceCollide().radius(19).iterations(2))
+      .force("center", d3.forceCenter(width / 2 - 100, height / 2))
+      .force("forceX", d3.forceX(width/2).strength(0.14) )
+      .force("forceY", d3.forceY(height/2).strength(0.18) );
 
 
   d3.json("clean_scalar_data.json", function(error, graph) {
@@ -119,7 +119,7 @@
 
       context.beginPath();
       graph.links.forEach(drawLink);
-      context.strokeStyle = "#aaa";
+      context.strokeStyle = "rgba(77, 109, 126, 0.2)";
       context.stroke();
 
       context.fillStyle = 'rgba(0, 128, 128, 0.75)';
@@ -195,6 +195,7 @@
   function dragged() {
     d3.event.subject.fx = d3.event.x;
     d3.event.subject.fy = d3.event.y;
+    simulation.alphaTarget(0.7);
   }
 
   function dragended() {
@@ -237,29 +238,33 @@
   function drawLabel(d) {
       if (currentlyDragging && (d != dragSubjectForFade && !isConnected(d, dragSubjectForFade))){
         context.fillStyle = 'rgba(0, 0, 0, 0.78';
-        context.font = '10px Arial';
+        context.font = '6px Arial';
       } else if (currentlyDragging && d == dragSubjectForFade){
         context.fillStyle = 'black';
-        context.font = '32px Arial';
+        context.font = '28px Arial';
       } else if (currentlyDragging && (isConnected(d, dragSubjectForFade))){
         context.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        context.font = '20px Arial';
+        context.font = '16px Arial';
 
       } else    {
         
-        
-        if (d.extraData == "yes"){
+        if (d.id == "http://scalar.usc.edu/works/cafs-cities-and-people/network-visualization-of-caf-regulars.1"){
+          context.fillStyle = 'rgba(0, 0, 0, 0.82';
+          context.font = '10px Arial';
+        } else if (d.extraData == "yes"){
           context.fillStyle = 'rgba(0, 0, 0, 0.99)';
-          context.font = 'small-caps 13px Arial ';
+          context.font = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
 
         } else {   
-        context.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        context.font = '13px Arial';
+        context.fillStyle = 'rgba(0, 0, 0, 0.82)';
+        context.font = '' + (10 + d.betweenness_centrality_score) + 'px Arial';
         }
       
       
       
       };
+
+      context.textAlign="center";
 
       context.fillText(d.name, d.x + 5, d.y);
 
