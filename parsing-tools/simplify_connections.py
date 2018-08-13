@@ -4,9 +4,55 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import math
 
+def loadScalarData(input_file):
+
+    data_for_output = {}
+
+    with open(input_file, "r", encoding="utf-8") as read_file:
+        data = json.load(read_file, strict=False)
+        for key in data:
+            out_dict = data[key]
+            out_dict['key'] = key
+            data_for_output[key] = out_dict
+    
+    return data_for_output
+
+def getTagsAndTaggedNodes(reference_dict, excludeMedia=True):
+    final_list_links = []
+    nodes_identified_in_links = []
+
+
+    for key in reference_dict:
+        current_item = reference_dict[key]
+        if 'urn:scalar:tag:' in current_item['key']:
+            body = current_item['http://www.openannotation.org/ns/hasBody'][0]['value']
+            target = current_item['http://www.openannotation.org/ns/hasTarget'][0]['value']
+
+            # ignore tags here that involve media nodes (almost always images)
+            if excludeMedia:
+                if 'media' in body or 'media' in target:
+                    continue
+            
+            if body not in nodes_identified_in_links:
+                nodes_identified_in_links.append(body)
+
+            if target not in nodes_identified_in_links:
+                nodes_identified_in_links.append(target)
+            
+            tag_dict = {
+                'source': body,
+                'target': target,
+            }
+            
+            final_list_links.append(tag_dict)
+    
+    return final_list_links, nodes_identified_in_links
+
+
 # use networkx to generate betweennenss centrality for nodes and return as dict
 
 def generateBetweennessCentrality(links, nodes):
+
     print(links)
     print(nodes)
     G=nx.Graph()
@@ -14,59 +60,22 @@ def generateBetweennessCentrality(links, nodes):
     G.add_edges_from(links)
     nx.draw(G)
     plt.show()
+
     return nx.betweenness_centrality(G)
 
-# Dicts and lists to store network information
-# This will be used to assemble a network viz later
-# With the specification of tags in a "links" sub-dictionary
-# and node descriptions in a "nodes" sub-dictionary
 
-data_for_viz = []
-reference_dict = {}
-final_list_links = []
-final_list_nodes = []
-nodes_identified_in_links = []
 
 
 
 input_file = "scalar_output.json"
 output_file = "cleaned_test.json"
 
-with open(input_file, "r", encoding="utf-8") as read_file:
-    data = json.load(read_file, strict=False)
-    for key in data:
-        out_dict = data[key]
-        out_dict['key'] = key
-        data_for_viz.append(out_dict)
-        reference_dict[key] = out_dict
+reference_dict = loadScalarData(input_file)
 
-for item in data_for_viz:
-    if 'urn:scalar:tag:' in item['key']:
-        body = item['http://www.openannotation.org/ns/hasBody'][0]['value']
-        target = item['http://www.openannotation.org/ns/hasTarget'][0]['value']
+final_list_links, nodes_identified_in_links = getTagsAndTaggedNodes(reference_dict)
+final_list_nodes = []
 
-        # ignore tags here that involve media nodes (almost always images)
 
-        if 'media' in body or 'media' in target:
-            continue
-        
-        if body not in nodes_identified_in_links:
-            nodes_identified_in_links.append(body)
-
-        if target not in nodes_identified_in_links:
-            nodes_identified_in_links.append(target)
-        
-        # print('Body = ' + body)
-        # print('Target = ' + target + '\n')
-        # print(body)
-        # print(target)
-    
-        tag_dict = {
-            'source': body,
-            'target': target,
-        }
-        
-        final_list_links.append(tag_dict)
 # print(nodes_identified_in_links)
 for node in nodes_identified_in_links:
     current_node_dict = reference_dict[node]
