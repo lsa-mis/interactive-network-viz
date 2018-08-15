@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import math
 
 def loadScalarData(input_file):
+    # loads JSON data exported from the Scalar API Explorer tool
+    # and parses as a dictionary for further manipulation with Python here
 
     data_for_output = {}
 
@@ -12,6 +14,10 @@ def loadScalarData(input_file):
         data = json.load(read_file, strict=False)
         for key in data:
             out_dict = data[key]
+            
+            # also add the name of the current dictionary to the dcitionary itself and assign to the key 'key'
+            # (because we're outputting a list of dictionaries, the key name would be lost otherwise)
+
             out_dict['key'] = key
             data_for_output[key] = out_dict
     
@@ -48,23 +54,111 @@ def getTagsAndTaggedNodes(reference_dict, excludeMedia=True):
     
     return final_list_links, nodes_identified_in_links
 
+def parseNodes(nodes_identified_in_links, lookForImages = True, lookForText= True):
+    # note to self - add logic for lookFor parameters
+    final_list_nodes = []
+    for node in nodes_identified_in_links:
+        current_node_dict = reference_dict[node]
+        url = node
+        _id = node
+        _name = ""
+        photoURL = ""
+        description = ""
+        extraData = "no"
 
-# use networkx to generate betweennenss centrality for nodes and return as dict
+        # look for reference to media
+        references = current_node_dict.get("http://purl.org/dc/terms/references")
+        mediaReferenced = None
+        imageURL = None
+        description = None
+        if references:
+            if "media" in references[0]["value"]:
+                mediaReferenced = references[0]["value"]
+            # if reference to media found, fetch URL and description from media page
+                print("\n")
+                content = reference_dict[node]["http://rdfs.org/sioc/ns#content"][0]['value']
+                # urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', content)
+                # print(urls[0])
+                soup = BeautifulSoup(content, "html.parser")
+                imageURL = soup.find("a")["href"]
+                description = soup.text
 
-def generateBetweennessCentrality(links, nodes):
+                # ceate an abbreviated description (to encourage users to go to Scalar for full description)
+                if len(description) > 80:
+                    description = description[0:100] + "..."
+        
 
-    print(links)
-    print(nodes)
+        # get rid of part of URL after period (multiple versions in Scalar)
+        if url[-2] == '.':
+            url = url[0:-2]
+        elif url[-3] == '.':
+            url = url[0:-3]
+        elif url[-4] == '.':
+            url = url[0:-4]
+
+        
+        try:
+            # make sure the node is fetching the name correctly, assign to _name
+            _name = current_node_dict['http://purl.org/dc/terms/title'][0]['value']
+            # print(title)
+
+        except:
+            _name = node
+
+        node_out = {
+            'id' : _id,
+            'name' : _name,
+            'url' : url,
+            'colour':	"#2a2a2a"
+        }
+
+        if imageURL:
+            node_out["imageURL"] = imageURL
+            extraData = "yes"
+        if description:
+            node_out["description"] = description
+            extraData = "yes"
+        node_out["extraData"] = extraData
+
+
+        final_list_nodes.append(node_out)
+
+    return final_list_nodes
+
+
+
+def generateBetweennessCentrality(final_list_links, final_list_nodes):
+    # use networkx to generate betweennenss centrality for nodes and return as dict
+
+
+    nodes_for_nx = [node['id'] for node in final_list_nodes]
+    edges_for_nx = [(n['source'],n['target']) for n in final_list_links]
+
+
+    print(edges_for_nx)
+    print(nodes_for_nx)
     G=nx.Graph()
-    G.add_nodes_from(nodes)
-    G.add_edges_from(links)
+    G.add_nodes_from(nodes_for_nx)
+    G.add_edges_from(edges_for_nx)
     nx.draw(G)
     plt.show()
 
     return nx.betweenness_centrality(G)
 
 
+def addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_links, final_list_nodes):
+    final_output = {}
+    final_output['links'] = final_list_links
+    final_output['nodes'] = []
 
+    for node in final_list_nodes:
+        current_bc_score = betweenness_centrality_scores[node['id']]
+        # let's convnert this to a 0 to 100 score, roundng up 
+        node['betweenness_centrality_score'] = math.ceil(current_bc_score * 100)
+        final_output['nodes'].append(node)
+    # print(final_output['nodes'])
+
+    return final_output
 
 
 input_file = "scalar_output.json"
@@ -73,100 +167,12 @@ output_file = "cleaned_test.json"
 reference_dict = loadScalarData(input_file)
 
 final_list_links, nodes_identified_in_links = getTagsAndTaggedNodes(reference_dict)
-final_list_nodes = []
+final_list_nodes = parseNodes(nodes_identified_in_links)
 
+betweenness_centrality_scores = generateBetweennessCentrality(final_list_links, final_list_nodes)
 
-# print(nodes_identified_in_links)
-for node in nodes_identified_in_links:
-    current_node_dict = reference_dict[node]
-    url = node
-    _id = node
-    _name = ""
-    photoURL = ""
-    description = ""
-    extraData = "no"
+final_output = addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_links, final_list_nodes)
 
-    # look for reference to media
-    references = current_node_dict.get("http://purl.org/dc/terms/references")
-    mediaReferenced = None
-    imageURL = None
-    description = None
-    if references:
-        if "media" in references[0]["value"]:
-            mediaReferenced = references[0]["value"]
-    if mediaReferenced:
-        # if reference to media found, fetch URL and description from media page
-        print("\n")
-        content = reference_dict[node]["http://rdfs.org/sioc/ns#content"][0]['value']
-        # urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', content)
-        # print(urls[0])
-        soup = BeautifulSoup(content, "html.parser")
-        imageURL = soup.find("a")["href"]
-        description = soup.text
-
-        # ceate an abbreviated description (to encourage users to go to Scalar for full description)
-        if len(description) > 80:
-            description = description[0:100] + "..."
-    
-
-    # get rid of part of URL after period (multiple versions in Scalar)
-    if url[-2] == '.':
-        url = url[0:-2]
-    elif url[-3] == '.':
-        url = url[0:-3]
-    elif url[-4] == '.':
-        url = url[0:-4]
-
-    
-    try:
-        # make sure the node is fetching the name correctly, assign to _name
-        _name = current_node_dict['http://purl.org/dc/terms/title'][0]['value']
-        # print(title)
-
-    except:
-        _name = node
-
-    node_out = {
-        'id' : _id,
-        'name' : _name,
-        'url' : url,
-        'colour':	"#2a2a2a"
-    }
-
-    if imageURL:
-        node_out["imageURL"] = imageURL
-        extraData = "yes"
-    if description:
-        node_out["description"] = description
-        extraData = "yes"
-    node_out["extraData"] = extraData
-
-
-    final_list_nodes.append(node_out)
-
-
-
-# generate list of node names and edges that networkx can handle
-node_names = [node['id'] for node in final_list_nodes]
-edges_for_nx = [(n['source'],n['target']) for n in final_list_links]
-
-betweenness_centrality_scores = generateBetweennessCentrality(edges_for_nx, node_names)
-
-final_output = {}
-final_output['links'] = final_list_links
-
-# will have to iterate over final_list_nodes and add bc scores and then add here sequentially
-final_output['nodes'] = []
-
-
-# now add betweenness centrality scores to node dicts
-
-for node in final_list_nodes:
-    current_bc_score = betweenness_centrality_scores[node['id']]
-    # let's convnert this to a 0 to 100 score, roundng up 
-    node['betweenness_centrality_score'] = math.ceil(current_bc_score * 100)
-    final_output['nodes'].append(node)
-# print(final_output['nodes'])
 
 
 with open(output_file, "w") as write_file:
