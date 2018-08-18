@@ -58,11 +58,12 @@ def getTagsAndTaggedNodes(reference_dict, excludeMedia=True):
     
     return tags_for_network_links, tagged_pages_for_network_nodes
 
-def parseNodes(scalar_data, nodes_identified_in_links):
-    # 
+def parseNodes(scalar_data, pages_identified_in_links):
+    # fetch all relevant data about the pages and return as list of nodes
+    # including checking for additional page data (text and embedded images)
 
     list_of_parsed_nodes = []
-    for node in nodes_identified_in_links:
+    for node in pages_identified_in_links:
         current_node_dict = scalar_data[node]
         url = node
         _id = node
@@ -132,6 +133,7 @@ def parseNodes(scalar_data, nodes_identified_in_links):
 
     return list_of_parsed_nodes
 
+
 def generateBetweennessCentrality(final_list_links, final_list_nodes):
     # use networkx to generate betweennenss centrality for nodes and return as dict
 
@@ -151,6 +153,9 @@ def generateBetweennessCentrality(final_list_links, final_list_nodes):
 
 
 def addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_links, final_list_nodes):
+    # add BC scores as a new parameter, 'betweeness_centrality_score'
+    # as an integar between 0 and 100 to use in network viz (as font size, etc.)
+
     final_output = {}
     final_output['links'] = final_list_links
     final_output['nodes'] = []
@@ -164,17 +169,18 @@ def addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_li
 
     return final_output
 
+
 def main():
 
     input_file = "scalar_output.json"
-    output_file = "cleaned_test.json"
+    output_file = "cleaned.json"
 
     # load Scalar data .json file into Python data
     scalar_data_dict = loadScalarData(input_file)
 
     # generate final list of links and nodes
-    final_links, nodes_identified_in_links = getTagsAndTaggedNodes(scalar_data_dict)
-    final_nodes = parseNodes(scalar_data_dict, nodes_identified_in_links)
+    final_links, linked_pages = getTagsAndTaggedNodes(scalar_data_dict)
+    final_nodes = parseNodes(scalar_data_dict, linked_pages)
 
     # generate betweenness centrality scores for nodes using NetworkX 
     betweenness_centrality_scores = generateBetweennessCentrality(final_links, final_nodes)
@@ -186,7 +192,7 @@ def main():
 
     with open(output_file, "w") as write_file:
         json.dump(final_output, write_file)
-        print('clean data successfully written to disk as "data_file.json"')
+        print('clean data successfully written to disk as "cleaned.json"')
 
 
 if __name__ == "__main__":
