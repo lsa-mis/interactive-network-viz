@@ -1,7 +1,7 @@
 import json, re
 from bs4 import BeautifulSoup
 import networkx as nx
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import math
 
 def loadScalarData(input_file):
@@ -17,15 +17,19 @@ def loadScalarData(input_file):
             
             # also add the name of the current dictionary to the dcitionary itself and assign to the key 'key'
             # (because we're outputting a list of dictionaries, the key name would be lost otherwise)
-
             out_dict['key'] = key
             data_for_output[key] = out_dict
     
     return data_for_output
 
 def getTagsAndTaggedNodes(reference_dict, excludeMedia=True):
-    final_list_links = []
-    nodes_identified_in_links = []
+    # extracts all tags and only the pages that are tagged somewhere in the Scalar book
+    # the tags will form the "links" or "edges" in the network
+    # (the tags are pretty much ready at this point for the network viz, but we
+    # have a few additional steps to go to prepare the nodes)
+
+    tags_for_network_links = []
+    tagged_pages_for_network_nodes = []
 
 
     for key in reference_dict:
@@ -39,30 +43,31 @@ def getTagsAndTaggedNodes(reference_dict, excludeMedia=True):
                 if 'media' in body or 'media' in target:
                     continue
             
-            if body not in nodes_identified_in_links:
-                nodes_identified_in_links.append(body)
+            if body not in tagged_pages_for_network_nodes:
+                tagged_pages_for_network_nodes.append(body)
 
-            if target not in nodes_identified_in_links:
-                nodes_identified_in_links.append(target)
+            if target not in tagged_pages_for_network_nodes:
+                tagged_pages_for_network_nodes.append(target)
             
             tag_dict = {
                 'source': body,
                 'target': target,
             }
             
-            final_list_links.append(tag_dict)
+            tags_for_network_links.append(tag_dict)
     
-    return final_list_links, nodes_identified_in_links
+    return tags_for_network_links, tagged_pages_for_network_nodes
 
-def parseNodes(nodes_identified_in_links, lookForImages = True, lookForText= True):
-    # note to self - add logic for lookFor parameters
-    final_list_nodes = []
+def parseNodes(scalar_data, nodes_identified_in_links):
+    # 
+
+    list_of_parsed_nodes = []
     for node in nodes_identified_in_links:
-        current_node_dict = reference_dict[node]
+        current_node_dict = scalar_data[node]
         url = node
         _id = node
         _name = ""
-        photoURL = ""
+        imageURL = ""
         description = ""
         extraData = "no"
 
@@ -76,7 +81,7 @@ def parseNodes(nodes_identified_in_links, lookForImages = True, lookForText= Tru
                 mediaReferenced = references[0]["value"]
             # if reference to media found, fetch URL and description from media page
                 print("\n")
-                content = reference_dict[node]["http://rdfs.org/sioc/ns#content"][0]['value']
+                content = scalar_data[node]["http://rdfs.org/sioc/ns#content"][0]['value']
                 # urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', content)
                 # print(urls[0])
                 soup = BeautifulSoup(content, "html.parser")
@@ -87,24 +92,24 @@ def parseNodes(nodes_identified_in_links, lookForImages = True, lookForText= Tru
                 if len(description) > 80:
                     description = description[0:100] + "..."
         
-
-        # get rid of part of URL after period (multiple versions in Scalar)
+        # when directing the user to the Scalar page via the "url" attribute in the visualization
+        # we can ignore the extra version suffix, such as "cafe_central.4" and simply send them to
+        # "cafe_central" -- otherwise Scalar may omit the page description (for some reason)
         if url[-2] == '.':
             url = url[0:-2]
         elif url[-3] == '.':
             url = url[0:-3]
         elif url[-4] == '.':
             url = url[0:-4]
-
         
         try:
             # make sure the node is fetching the name correctly, assign to _name
             _name = current_node_dict['http://purl.org/dc/terms/title'][0]['value']
-            # print(title)
 
         except:
             _name = node
 
+        # assemble a dictionary to describe the current node
         node_out = {
             'id' : _id,
             'name' : _name,
@@ -112,6 +117,9 @@ def parseNodes(nodes_identified_in_links, lookForImages = True, lookForText= Tru
             'colour':	"#2a2a2a"
         }
 
+        # optional imageURL and description paramaters for the nodes, if the pages include this data
+        # will also include an "extraData" parameter to indicate if either attribute exists, for use by
+        # the network viz later on
         if imageURL:
             node_out["imageURL"] = imageURL
             extraData = "yes"
@@ -120,16 +128,12 @@ def parseNodes(nodes_identified_in_links, lookForImages = True, lookForText= Tru
             extraData = "yes"
         node_out["extraData"] = extraData
 
+        list_of_parsed_nodes.append(node_out)
 
-        final_list_nodes.append(node_out)
-
-    return final_list_nodes
-
-
+    return list_of_parsed_nodes
 
 def generateBetweennessCentrality(final_list_links, final_list_nodes):
     # use networkx to generate betweennenss centrality for nodes and return as dict
-
 
     nodes_for_nx = [node['id'] for node in final_list_nodes]
     edges_for_nx = [(n['source'],n['target']) for n in final_list_links]
@@ -140,8 +144,8 @@ def generateBetweennessCentrality(final_list_links, final_list_nodes):
     G=nx.Graph()
     G.add_nodes_from(nodes_for_nx)
     G.add_edges_from(edges_for_nx)
-    nx.draw(G)
-    plt.show()
+    # nx.draw(G)
+    # plt.show()
 
     return nx.betweenness_centrality(G)
 
@@ -160,22 +164,30 @@ def addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_li
 
     return final_output
 
+def main():
 
-input_file = "scalar_output.json"
-output_file = "cleaned_test.json"
+    input_file = "scalar_output.json"
+    output_file = "cleaned_test.json"
 
-reference_dict = loadScalarData(input_file)
+    # load Scalar data .json file into Python data
+    scalar_data_dict = loadScalarData(input_file)
 
-final_list_links, nodes_identified_in_links = getTagsAndTaggedNodes(reference_dict)
-final_list_nodes = parseNodes(nodes_identified_in_links)
+    # generate final list of links and nodes
+    final_links, nodes_identified_in_links = getTagsAndTaggedNodes(scalar_data_dict)
+    final_nodes = parseNodes(scalar_data_dict, nodes_identified_in_links)
 
-betweenness_centrality_scores = generateBetweennessCentrality(final_list_links, final_list_nodes)
+    # generate betweenness centrality scores for nodes using NetworkX 
+    betweenness_centrality_scores = generateBetweennessCentrality(final_links, final_nodes)
 
-final_output = addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_links, final_list_nodes)
+    # one final step to collect links and nodes (with betweenness-centrality scores added) into a single dictionary
+    # (this is assuming this is the most useful way to pass the data to a network visaulization
+    # BUT you may wish to modify or rewrite this function if your visualization calls for another way to organize)
+    final_output = addBetweennessCentralityToNodes(betweenness_centrality_scores, final_links, final_nodes)
+
+    with open(output_file, "w") as write_file:
+        json.dump(final_output, write_file)
+        print('clean data successfully written to disk as "data_file.json"')
 
 
-
-with open(output_file, "w") as write_file:
-    json.dump(final_output, write_file)
-    print('clean data successfully written to disk as "data_file.json"')
-
+if __name__ == "__main__":
+    main()
