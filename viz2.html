@@ -72,15 +72,21 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-  var dragSubjectForFade = null;
-  var currentlyDragging = false;
+  // set variables to keep track of mouse , including dragging behavior (click and move)
 
   var mousePosX = 0;
   var mousePosY = 0;
+  var dragSubjectForFade = null;
+  var currentlyDragging = false;
+
+  // set up 2d canvas
+
   var canvas = document.querySelector("canvas"),
       context = canvas.getContext("2d"),
       width = canvas.width,
       height = canvas.height;
+
+  // set parameters for d3's force directed network simulation physics
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.1))
@@ -90,6 +96,8 @@
       .force("forceX", d3.forceX(width/2).strength(0.14) )
       .force("forceY", d3.forceY(height/2).strength(0.18) );
 
+  // load json data with edges (or "links") and nodes ("nodes")
+  // for more on preparing this data, see parsing-tools/simplify_connections.py
 
   d3.json("clean_scalar_data.json", function(error, graph) {
     if (error) throw error;
@@ -144,58 +152,58 @@
 
 
   function dragstarted() {
-    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-    // console.log(d3.event.subject);
-    
-    dragSubjectForFade = d3.event.subject;
-    currentlyDragging = true;
+      if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+      // console.log(d3.event.subject);
+      
+      dragSubjectForFade = d3.event.subject;
+      currentlyDragging = true;
 
-    d3.event.subject.fx = d3.event.subject.x;
-    d3.event.subject.fy = d3.event.subject.y;
+      d3.event.subject.fx = d3.event.subject.x;
+      d3.event.subject.fy = d3.event.subject.y;
 
-    var sidebarHeadline = document.getElementById("sidebar-headline");
-    var sidebarLink = document.getElementById("sidebar-link");
+      var sidebarHeadline = document.getElementById("sidebar-headline");
+      var sidebarLink = document.getElementById("sidebar-link");
 
-    sidebarHeadline.innerHTML = d3.event.subject.name;
+      sidebarHeadline.innerHTML = d3.event.subject.name;
 
-    var linkToScalar = document.createElement("a")
-    linkToScalar.setAttribute("href", d3.event.subject.url)
-    linkToScalar.setAttribute("target", "_blank");
-    linkToScalar.setAttribute("id", "scalarLink");
+      var linkToScalar = document.createElement("a")
+      linkToScalar.setAttribute("href", d3.event.subject.url)
+      linkToScalar.setAttribute("target", "_blank");
+      linkToScalar.setAttribute("id", "scalarLink");
 
-    while (sidebarLink.firstChild) {
-        sidebarLink.removeChild(sidebarLink.firstChild);}
+      while (sidebarLink.firstChild) {
+          sidebarLink.removeChild(sidebarLink.firstChild);}
 
-    sidebarLink.appendChild(linkToScalar);
-    document.getElementById("scalarLink").innerHTML = "View the full page"
+      sidebarLink.appendChild(linkToScalar);
+      document.getElementById("scalarLink").innerHTML = "View the full page"
 
-    if(d3.event.subject.extraData == "yes"){
-        document.getElementById("sidebar-content").classList.add("active");
-        imageURL = d3.event.subject.imageURL;
-        description = d3.event.subject.description;
-        document.getElementById("sidebar-content").innerHTML = description + "<br><hr >";
+      if(d3.event.subject.extraData == "yes"){
+          document.getElementById("sidebar-content").classList.add("active");
+          imageURL = d3.event.subject.imageURL;
+          description = d3.event.subject.description;
+          document.getElementById("sidebar-content").innerHTML = description + "<br><hr >";
 
-        var elem = document.createElement("img");
-        elem.setAttribute("src", imageURL);
-        elem.setAttribute("height", "100%");
-        elem.setAttribute("width", "100%");
-        elem.setAttribute("alt", description);
+          var elem = document.createElement("img");
+          elem.setAttribute("src", imageURL);
+          elem.setAttribute("height", "100%");
+          elem.setAttribute("width", "100%");
+          elem.setAttribute("alt", description);
 
-        document.getElementById("sidebar-content").appendChild(elem);
+          document.getElementById("sidebar-content").appendChild(elem);
+          
+
+      } else {
+
+            document.getElementById("sidebar-content").classList.remove("active");
+
+
+            while (document.getElementById("sidebar-content").firstChild) {
+                document.getElementById("sidebar-content").removeChild(document.getElementById("sidebar-content").firstChild);
+      }
         
 
-    } else {
-
-        document.getElementById("sidebar-content").classList.remove("active");
-
-
-      while (document.getElementById("sidebar-content").firstChild) {
-        document.getElementById("sidebar-content").removeChild(document.getElementById("sidebar-content").firstChild);
+      }
     }
-      
-
-    }
-  }
 
   function dragged() {
       d3.event.subject.fx = d3.event.x;
