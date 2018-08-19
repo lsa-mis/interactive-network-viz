@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import networkx as nx
 import math
 
-## simplify_connections.py takes the JSON output of the Scalar API Explorer tool ( http://scalar.usc.edu/tools/apiexplorer/ )
+## generate_scalar_network.py takes the JSON output of the Scalar API Explorer tool ( http://scalar.usc.edu/tools/apiexplorer/ )
 ## for "All of the book's content and relationships" and generates nodes and edges (or "links")
 ## to be visualized via an interactive network visualization
 
