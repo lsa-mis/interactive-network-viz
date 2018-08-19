@@ -1,8 +1,15 @@
 import json, re
 from bs4 import BeautifulSoup
 import networkx as nx
-# import matplotlib.pyplot as plt
 import math
+
+## simplify_connections.py takes the JSON output of the Scalar API Explorer tool ( http://scalar.usc.edu/tools/apiexplorer/ )
+## for "All of the book's content and relationships" and generates nodes and edges (or "links")
+## to be visualized via an interactive network visualization
+
+## this script also generates betweenness centrality scores ( https://en.wikipedia.org/wiki/Betweenness_centrality ) for all nodes/pages
+## and includes any image URLs and description text found on nodes/pages
+
 
 def loadScalarData(input_file):
     # loads JSON data exported from the Scalar API Explorer tool
@@ -23,10 +30,9 @@ def loadScalarData(input_file):
     return data_for_output
 
 def getTagsAndTaggedNodes(reference_dict, excludeMedia=True):
-    # extracts all tags and only the pages that are tagged somewhere in the Scalar book
-    # the tags will form the "links" or "edges" in the network
-    # (the tags are pretty much ready at this point for the network viz, but we
-    # have a few additional steps to go to prepare the nodes)
+    # extracts all tags and pages that are tagged somewhere in the Scalar book
+    # represents each item (tags/pages) as a dictionary
+    # and returns a list for each item type
 
     tags_for_network_links = []
     tagged_pages_for_network_nodes = []
@@ -61,6 +67,9 @@ def getTagsAndTaggedNodes(reference_dict, excludeMedia=True):
 def parseNodes(scalar_data, pages_identified_in_links):
     # fetch all relevant data about the pages and return as list of nodes
     # including checking for additional page data (text and embedded images)
+    
+    # note - you may wish to modify these parameters to include significant data
+    # scraping tags is more straightforward, whereas metadata categories/etc. will be specific to your Scalar book
 
     list_of_parsed_nodes = []
     for node in pages_identified_in_links:
@@ -74,17 +83,12 @@ def parseNodes(scalar_data, pages_identified_in_links):
 
         # look for reference to media
         references = current_node_dict.get("http://purl.org/dc/terms/references")
-        mediaReferenced = None
         imageURL = None
         description = None
         if references:
             if "media" in references[0]["value"]:
-                mediaReferenced = references[0]["value"]
-            # if reference to media found, fetch URL and description from media page
-                print("\n")
+                # if reference to media found, fetch URL and description from media page
                 content = scalar_data[node]["http://rdfs.org/sioc/ns#content"][0]['value']
-                # urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', content)
-                # print(urls[0])
                 soup = BeautifulSoup(content, "html.parser")
                 imageURL = soup.find("a")["href"]
                 description = soup.text
@@ -140,14 +144,9 @@ def generateBetweennessCentrality(final_list_links, final_list_nodes):
     nodes_for_nx = [node['id'] for node in final_list_nodes]
     edges_for_nx = [(n['source'],n['target']) for n in final_list_links]
 
-
-    print(edges_for_nx)
-    print(nodes_for_nx)
-    G=nx.Graph()
+    G = nx.Graph()
     G.add_nodes_from(nodes_for_nx)
     G.add_edges_from(edges_for_nx)
-    # nx.draw(G)
-    # plt.show()
 
     return nx.betweenness_centrality(G)
 
@@ -162,18 +161,18 @@ def addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_li
 
     for node in final_list_nodes:
         current_bc_score = betweenness_centrality_scores[node['id']]
-        # let's convnert this to a 0 to 100 score, roundng up 
+        # let's convnert this percentage value to an integer between 0 to 100, roundng up 
         node['betweenness_centrality_score'] = math.ceil(current_bc_score * 100)
         final_output['nodes'].append(node)
-    # print(final_output['nodes'])
 
     return final_output
 
 
 def main():
 
+    # set filenames for input .json (from Scalar API explorer) and output .json
     input_file = "scalar_output.json"
-    output_file = "cleaned.json"
+    output_file = "clean_scalar_data.json"
 
     # load Scalar data .json file into Python data
     scalar_data_dict = loadScalarData(input_file)
@@ -192,7 +191,7 @@ def main():
 
     with open(output_file, "w") as write_file:
         json.dump(final_output, write_file)
-        print('clean data successfully written to disk as "cleaned.json"')
+        print('clean data successfully written to disk as "clean_scalar_data.json"')
 
 
 if __name__ == "__main__":
