@@ -134,12 +134,12 @@
       context.closePath();
       context.fill();
 
-      context.strokeStyle = "#fff";
-      context.stroke();
+      // context.strokeStyle = "#fff";
+      // context.stroke();
     }
 
     function dragsubject() {
-      return simulation.find(d3.event.x, d3.event.y);
+        return simulation.find(d3.event.x, d3.event.y);
     }
 
 
@@ -157,31 +157,36 @@
     var sidebarLink = document.getElementById("sidebar-link");
 
     sidebarHeadline.innerHTML = d3.event.subject.name;
+
     var linkToScalar = document.createElement("a")
-    linkToScalar.setAttribute("href", d3.event.subject.url);
+    linkToScalar.setAttribute("href", d3.event.subject.url)
     linkToScalar.setAttribute("target", "_blank");
     linkToScalar.setAttribute("id", "scalarLink");
+
     while (sidebarLink.firstChild) {
-      sidebarLink.removeChild(sidebarLink.firstChild);}
+        sidebarLink.removeChild(sidebarLink.firstChild);}
+
     sidebarLink.appendChild(linkToScalar);
     document.getElementById("scalarLink").innerHTML = "View the full page"
 
     if(d3.event.subject.extraData == "yes"){
-      document.getElementById("sidebar-content").classList.add("active");
-      imageURL = d3.event.subject.imageURL;
-      description = d3.event.subject.description;
-      document.getElementById("sidebar-content").innerHTML = description + "<br><hr >";
-      var elem = document.createElement("img");
-      elem.setAttribute("src", imageURL);
-      elem.setAttribute("height", "100%");
-      elem.setAttribute("width", "100%");
-      elem.setAttribute("alt", description);
-      document.getElementById("sidebar-content").appendChild(elem);
-      
+        document.getElementById("sidebar-content").classList.add("active");
+        imageURL = d3.event.subject.imageURL;
+        description = d3.event.subject.description;
+        document.getElementById("sidebar-content").innerHTML = description + "<br><hr >";
+
+        var elem = document.createElement("img");
+        elem.setAttribute("src", imageURL);
+        elem.setAttribute("height", "100%");
+        elem.setAttribute("width", "100%");
+        elem.setAttribute("alt", description);
+
+        document.getElementById("sidebar-content").appendChild(elem);
+        
 
     } else {
 
-      document.getElementById("sidebar-content").classList.remove("active");
+        document.getElementById("sidebar-content").classList.remove("active");
 
 
       while (document.getElementById("sidebar-content").firstChild) {
@@ -193,82 +198,87 @@
   }
 
   function dragged() {
-    d3.event.subject.fx = d3.event.x;
-    d3.event.subject.fy = d3.event.y;
-    simulation.alphaTarget(0.7);
+      d3.event.subject.fx = d3.event.x;
+      d3.event.subject.fy = d3.event.y;
+      simulation.alphaTarget(0.7);
   }
 
   function dragended() {
-    if (!d3.event.active) simulation.alphaTarget(0);
-    console.log(d3.event.subject);
+      if (!d3.event.active) simulation.alphaTarget(0);
+      console.log(d3.event.subject);
 
-    // create a possibility to go to this URL
-    // window.open(d3.event.subject.url, '_blank');
-    d3.event.subject.fx = null;
-    d3.event.subject.fy = null;
-    currentlyDragging = false;
-    dragSubjectForFade = null;
+
+      d3.event.subject.fx = null;
+      d3.event.subject.fy = null;
+      currentlyDragging = false;
+      dragSubjectForFade = null;
   }
 
   function drawLink(d) {
-    context.moveTo(d.source.x, d.source.y);
-    context.lineTo(d.target.x, d.target.y);
+      context.moveTo(d.source.x, d.source.y);
+      context.lineTo(d.target.x, d.target.y);
   }
 
   function drawNode(d) {
-    context.moveTo(d.x + 3, d.y);
-    context.arc(d.x, d.y, 2, 0, 2 * Math.PI);
+      context.moveTo(d.x + 3, d.y);
+      context.arc(d.x, d.y, 2, 0, 2 * Math.PI);
 
 
     // draw nodes that are either being dragged or immediate neighbor
 
     if (currentlyDragging)
-    { if (d != dragSubjectForFade) 
-      {   if (isConnected(d, dragSubjectForFade)) context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
-        ; 
-      } else 
-      {
-        context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
-      }
+      { if (d != dragSubjectForFade) 
+          {   if (isConnected(d, dragSubjectForFade)) context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+          } else 
+            {
+              context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+            }
     }
         ;
     
   }
 
   function drawLabel(d) {
-      if (currentlyDragging && (d != dragSubjectForFade && !isConnected(d, dragSubjectForFade))){
-        context.fillStyle = 'rgba(0, 0, 0, 0.78';
-        context.font = '6px Arial';
-      } else if (currentlyDragging && d == dragSubjectForFade){
-        context.fillStyle = 'black';
-        context.font = '28px Arial';
-      } else if (currentlyDragging && (isConnected(d, dragSubjectForFade))){
-        context.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        context.font = '16px Arial';
+      var currentStyle = '';
+      var currentFont = '';
+      if (currentlyDragging){
 
-      } else    {
+          currentConnected = isConnected(d, dragSubjectForFade);
+
+          if (d != dragSubjectForFade && currentConnected == false){
+              currentStyle = 'rgba(0, 0, 0, 0.78';
+              currentFont = '6px Arial';
+          } else if ( d == dragSubjectForFade){
+              currentStyle = 'black';
+              currentFont = '28px Arial';
+          } else if (currentConnected == true){
+              currentStyle = 'rgba(0, 0, 0, 0.8)';
+              currentFont = '16px Arial';
+          
+
+
+        }} else    {
         
-        if (d.id == "http://scalar.usc.edu/works/cafs-cities-and-people/network-visualization-of-caf-regulars.1"){
-          context.fillStyle = 'rgba(0, 0, 0, 0.82';
-          context.font = '10px Arial';
-        } else if (d.extraData == "yes"){
-          context.fillStyle = 'rgba(0, 0, 0, 0.99)';
-          context.font = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
+            if (d.id == "http://scalar.usc.edu/works/cafs-cities-and-people/network-visualization-of-caf-regulars.1"){
+                currentStyle = 'rgba(0, 0, 0, 0.82';
+                currentFont = '10px Arial';
+            } else if (d.extraData == "yes"){
+                currentStyle = 'rgba(0, 0, 0, 0.99)';
+                currentFont = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
 
-        } else {   
-        context.fillStyle = 'rgba(0, 0, 0, 0.82)';
-        context.font = '' + (10 + d.betweenness_centrality_score) + 'px Arial';
-        }
-      
-      
+            } else {   
+                currentStyle = 'rgba(0, 0, 0, 0.82)';
+                currentFont = '' + (10 + d.betweenness_centrality_score) + 'px Arial';
+            }
       
       };
 
-      context.textAlign="center";
+      context.fillStyle = currentStyle;
+      context.font =  currentFont;
 
+      context.textAlign="center";
       context.fillText(d.name, d.x + 5, d.y);
 
-    
   }
       
 
