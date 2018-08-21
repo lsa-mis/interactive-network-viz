@@ -1,4 +1,4 @@
-import json, re
+import json
 from bs4 import BeautifulSoup
 import networkx as nx
 import math
@@ -64,6 +64,7 @@ def getTagsAndTaggedNodes(reference_dict, excludeMedia=True):
     
     return tags_for_network_links, tagged_pages_for_network_nodes
 
+
 def parseNodes(scalar_data, pages_identified_in_links):
     # fetch all relevant data about the pages and return as list of nodes
     # including checking for additional page data (text and embedded images)
@@ -88,6 +89,7 @@ def parseNodes(scalar_data, pages_identified_in_links):
         if references:
             if "media" in references[0]["value"]:
                 # if reference to media found, fetch URL and description from media page
+                # using BeautifulSoup to parse the HTML descriptions
                 content = scalar_data[node]["http://rdfs.org/sioc/ns#content"][0]['value']
                 soup = BeautifulSoup(content, "html.parser")
                 imageURL = soup.find("a")["href"]
