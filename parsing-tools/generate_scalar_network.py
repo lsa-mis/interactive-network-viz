@@ -127,8 +127,7 @@ def parseNodes(scalar_data, pages_identified_in_links):
         }
 
         # optional imageURL and description paramaters for the nodes, if the pages include this data
-        # will also include an "extraData" parameter to indicate if either attribute exists, for use by
-        # the network viz later on
+        # will also include an "extraData" parameter to indicate if either attribute exists
         if imageURL:
             node_out["imageURL"] = imageURL
             extraData = "yes"
@@ -165,7 +164,7 @@ def addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_li
 
     for node in final_list_nodes:
         current_bc_score = betweenness_centrality_scores[node['id']]
-        # let's convnert this percentage value to an integer between 0 to 100, roundng up 
+        # convnert this percentage value to an integer between 0 to 100, roundng up 
         node['betweenness_centrality_score'] = math.ceil(current_bc_score * 100)
         final_output['nodes'].append(node)
 
@@ -189,8 +188,7 @@ def main():
     betweenness_centrality_scores = generateBetweennessCentrality(final_links, final_nodes)
 
     # one final step to collect links and nodes (with betweenness-centrality scores added) into a single dictionary
-    # (this is assuming this is the most useful way to pass the data to a network visaulization
-    # BUT you may wish to modify or rewrite this function if your visualization calls for another way to organize)
+    # (you may wish to rewrite this function if your visualization requires a different JSON structure)
     final_output = addBetweennessCentralityToNodes(betweenness_centrality_scores, final_links, final_nodes)
 
     with open(output_file, "w") as write_file:
