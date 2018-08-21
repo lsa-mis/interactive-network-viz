@@ -10,6 +10,8 @@ import math
 ## this script also generates betweenness centrality scores ( https://en.wikipedia.org/wiki/Betweenness_centrality ) for all nodes/pages
 ## and includes any image URLs and description text found on nodes/pages
 
+## to read a tutorial on implementing this script, visit https://zoews.github.io/articles/2018-08/custom-scalar-pt1
+
 
 def loadScalarData(input_file):
     # loads JSON data exported from the Scalar API Explorer tool
