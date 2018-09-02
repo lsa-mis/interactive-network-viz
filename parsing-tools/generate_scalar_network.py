@@ -165,7 +165,7 @@ def addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_li
     for node in final_list_nodes:
         current_bc_score = betweenness_centrality_scores[node['id']]
         # convnert this percentage value to an integer between 0 to 100, roundng up 
-        node['betweenness_centrality_score'] = math.ceil(current_bc_score * 100)
+        node['betweenness_centrality_score'] = math.ceil(current_bc_score * 66)
         final_output['nodes'].append(node)
 
     return final_output

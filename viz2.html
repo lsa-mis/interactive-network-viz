@@ -130,7 +130,7 @@
       context.strokeStyle = "rgba(77, 109, 126, 0.2)";
       context.stroke();
 
-      context.fillStyle = 'rgba(0, 128, 128, 0.75)';
+      context.fillStyle = 'rgba(0, 128, 128, 0.4)';
       context.beginPath();
       graph.nodes.forEach(drawNode);
       context.closePath();
@@ -229,7 +229,11 @@
 
   function drawNode(d) {
       context.moveTo(d.x + 3, d.y);
-      context.arc(d.x, d.y, 2, 0, 2 * Math.PI);
+      if (d.extraData == "yes"){
+        context.arc(d.x, d.y, 16, 0, 2 * Math.PI);
+      } else {
+        context.arc(d.x, d.y, 2, 0, 2 * Math.PI);
+      }
 
 
     // draw nodes that are either being dragged or immediate neighbor
@@ -255,29 +259,26 @@
 
           if (d != dragSubjectForFade && currentConnected == false){
               currentStyle = 'rgba(0, 0, 0, 0.78';
-              currentFont = '6px Arial';
+              currentFont = '7px Arial';
           } else if ( d == dragSubjectForFade){
               currentStyle = 'black';
-              currentFont = '28px Arial';
+              currentFont = '32px Arial';
           } else if (currentConnected == true){
               currentStyle = 'rgba(0, 0, 0, 0.8)';
-              currentFont = '16px Arial';
+              currentFont = '24px Arial';
           
 
 
         }} else    {
         
-            if (d.id == "http://scalar.usc.edu/works/cafs-cities-and-people/network-visualization-of-caf-regulars.1"){
-                currentStyle = 'rgba(0, 0, 0, 0.82';
-                currentFont = '10px Arial';
-            } else if (d.extraData == "yes"){
-                currentStyle = 'rgba(0, 0, 0, 0.99)';
-                currentFont = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
+            // if (d.extraData == "yes"){
+            //     currentStyle = 'rgba(0, 0, 0, 0.82)';
+            //     currentFont = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
 
-            } else {   
-                currentStyle = 'rgba(0, 0, 0, 0.82)';
-                currentFont = '' + (10 + d.betweenness_centrality_score) + 'px Arial';
-            }
+            // } else {   
+                currentStyle = 'rgba(0, 0, 0, 0.85)';
+                currentFont = '' + (9 + d.betweenness_centrality_score) + 'px Arial';
+            // }
       
       };
 
