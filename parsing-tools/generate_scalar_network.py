@@ -170,11 +170,33 @@ def addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_li
 
     return final_output
 
+def fake_addBetweennessCentralityToNodes(betweenness_centrality_scores, final_list_links, final_list_nodes):
+    # add BC scores as a new parameter, 'betweeness_centrality_score'
+    # as an integar between 0 and 100 to use in network viz (as font size, etc.)
+
+    final_output = {}
+    final_output['links'] = final_list_links
+    final_output['nodes'] = []
+
+    for node in final_list_nodes:
+        current_bc_score = betweenness_centrality_scores[node['id']]
+        # convnert this percentage value to an integer between 0 to 100, roundng up 
+        node['betweenness_centrality_score'] = math.ceil(current_bc_score * 66)
+        if node['name'] in ['New York', 'Tel Aviv-Jaffa', 'Warsaw, Poland', 'Berlin, Germany', 'Odessa', 'Vienna, Austria']:
+            node['betweenness_centrality_score'] = 20
+        else:
+            node['betweenness_centrality_score'] = 0
+
+        final_output['nodes'].append(node)
+
+    return final_output
+
 
 def main():
 
     # set filenames for input .json (from Scalar API explorer) and output .json
-    input_file = "scalar_output.json"
+    # input_file = "scalar_output.json"
+    input_file = "sept_output.json"
     output_file = "clean_scalar_data.json"
 
     # load Scalar data .json file into Python data
@@ -189,7 +211,8 @@ def main():
 
     # one final step to collect links and nodes (with betweenness-centrality scores added) into a single dictionary
     # (you may wish to rewrite this function if your visualization requires a different JSON structure)
-    final_output = addBetweennessCentralityToNodes(betweenness_centrality_scores, final_links, final_nodes)
+    # final_output = addBetweennessCentralityToNodes(betweenness_centrality_scores, final_links, final_nodes)
+    final_output = fake_addBetweennessCentralityToNodes(betweenness_centrality_scores, final_links, final_nodes)
 
     with open(output_file, "w") as write_file:
         json.dump(final_output, write_file)

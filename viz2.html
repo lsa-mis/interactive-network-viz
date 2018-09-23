@@ -50,12 +50,12 @@
     }
   </style>
   <body>
-      <div id="viz" style="height: 100%; width: 67%">
-        <canvas width="1200" height="800"></canvas>
+      <div id="viz" style="height: 100%; width: 75%; ">
+        <canvas height= "800" width = "700" id="myCanvas"></canvas>
       </div>
       <div id="network-viz-sidebar" class="overlay">
         <div class = "overlay-box">
-          <h2 id="sidebar-headline">  Visualize the unique convergences of people as networks that change over time. </h2>        
+          <h2 id="sidebar-headline">Explore relationships between people, cafés, and cities as a network</h2>        
           <div id="sidebar-link"></div>
 
         </div>
@@ -83,18 +83,29 @@
 
   var canvas = document.querySelector("canvas"),
       context = canvas.getContext("2d"),
-      width = canvas.width,
-      height = canvas.height;
+      width = canvas.parentElement.clientWidth,
+      height = canvas.parentElement.clientHeight;
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
 
+//     window.onload = window.onresize = function() {
+
+// canvas = document.getElementById('myCanvas');
+// canvas.width = window.innerWidth;
+// canvas.height = window.innerHeight;
+// width = canvas.width;
+// height = canvas.height;
+// context = canvas.getContext("2d");
+// }
   // set parameters for d3's force directed network simulation physics
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.1))
-      .force("charge", d3.forceManyBody().strength(-390))
-      .force("collide", d3.forceCollide().radius(19).iterations(2))
-      .force("center", d3.forceCenter(width / 2 - 100, height / 2))
-      .force("forceX", d3.forceX(width/2).strength(0.14) )
-      .force("forceY", d3.forceY(height/2).strength(0.18) );
+      .force("charge", d3.forceManyBody().strength(-360))
+      .force("collide", d3.forceCollide().radius(19))
+      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("forceX", d3.forceX(width/2).strength(0.15) )
+      .force("forceY", d3.forceY(height/2).strength(0.2) );
 
   // load json data with edges (or "links") and nodes ("nodes")
   // for more on preparing this data, see parsing-tools/simplify_connections.py
@@ -258,14 +269,14 @@
           currentConnected = isConnected(d, dragSubjectForFade);
 
           if (d != dragSubjectForFade && currentConnected == false){
-              currentStyle = 'rgba(0, 0, 0, 0.5';
-              currentFont = '8px Arial';
+              currentStyle = 'rgba(0, 0, 0, 0.6';
+              currentFont = '12px Arial';
           } else if ( d == dragSubjectForFade){
               currentStyle = 'black';
-              currentFont = '32px Arial';
+              currentFont = '30px Arial';
           } else if (currentConnected == true){
               currentStyle = 'rgba(0, 0, 0, 0.9)';
-              currentFont = '18px Arial';
+              currentFont = '16px Arial';
           
 
 
@@ -276,8 +287,8 @@
             //     currentFont = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
 
             // } else {   
-                currentStyle = 'rgba(0, 0, 0, 0.85)';
-                currentFont = '' + (9 + d.betweenness_centrality_score) + 'px Arial';
+                currentStyle = 'rgba(0, 0, 0, 0.88)';
+                currentFont = '' + (12 + d.betweenness_centrality_score) + 'px Arial';
             // }
       
       };
