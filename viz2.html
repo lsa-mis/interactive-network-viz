@@ -100,12 +100,12 @@
   // set parameters for d3's force directed network simulation physics
 
   var simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.1))
-      .force("charge", d3.forceManyBody().strength(-360))
+      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.13))
+      .force("charge", d3.forceManyBody().strength(-400))
       .force("collide", d3.forceCollide().radius(19))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("forceX", d3.forceX(width/2).strength(0.15) )
-      .force("forceY", d3.forceY(height/2).strength(0.2) );
+      .force("forceX", d3.forceX(width/2).strength(0.18) )
+      .force("forceY", d3.forceY(height/2).strength(0.22) );
 
   // load json data with edges (or "links") and nodes ("nodes")
   // for more on preparing this data, see parsing-tools/simplify_connections.py
