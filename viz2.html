@@ -45,14 +45,69 @@
     }
     #sidebar-content.active {
       background-color: rgba(255, 255, 255, 0.9); /* Black w/opacity */
-      
+    
+    
 
+    }
+    #slide_background {
+      transition: all 0.3s 0.3s;
+    }
+    #slide,
+    #slide_wrapper {
+      transition: all 0.3s ease-out;
+      height: 100%;
+      width: 50%;
+    }
+    #slide {
+      transform: translateX(25%) translateY(20%);
+    }
+    .popup_visible #slide {
+      transform: translateX(-25%) translateY(10%);
     }
   </style>
   <body>
+
+      <div id="slide">
+        <div style="background-color: white; padding: 10px;">
+
+          <div>
+            Welcome to the <b>people as network visualization tool!</b>
+          </div>
+          <hr>
+          <div>
+            This tool represents <b>individuals</b> (such as writers, café owners, famous community members), <b>cafés</b>, and <b>cities</b> that appear throughout the Jewish Cafés project. Here, we visualize these individuals, cafés, and cities in a network graph as points or <b>nodes</b>.
+            <br >
+            <br >
+            <b>Relationships</b> between individuals/cafés/cities (such as a known association between a regular café-goer and a specific café) are represented as lines or <b>edges</b>. Together, these nodes and edges constitute a single diasporic <b>network</b> of Jewish café communities in the nineteenth and twentieths centuries.
+
+            <br >
+            <br >
+            Try clicking on a specific node to learn more about that item, and see which other items are closely related (these other nodes will become larger and more visible as you grab onto a node). 
+            <br >
+            <br >
+            <img src="example_of_grab.png" style ="border: 2px solid">
+            <br >
+            <br >
+            Many nodes have additional content within our Scalar book, which you can explore further by the link on the right-hand side.
+            <br >
+
+
+
+          </div>
+
+
+      
+          <!-- Add an optional button to close the popup -->
+          <button class="slide_close">Close</button>
+        </div>
+          </div>
       <div id="viz" style="height: 100%; width: 75%; ">
-        <canvas height= "800" width = "700" id="myCanvas"></canvas>
+          
+        
+        <canvas height= "800" width = "700" id="myCanvas">
+        </canvas>
       </div>
+
       <div id="network-viz-sidebar" class="overlay">
         <div class = "overlay-box">
           <h2 id="sidebar-headline">Explore relationships between people, cafés, and cities as a network</h2>        
@@ -63,6 +118,7 @@
         </div>
       </div>
 
+
   </body>
 
 </html>
@@ -70,6 +126,26 @@
 
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+<script>
+    $(document).ready(function() {
+  
+      // Initialize the plugin
+        $('#slide').popup({
+      outline: false, // optional
+      focusdelay: 1000,
+      autoopen: true,
+      blur: true,
+      vertical: 'center' //optional
+      
+    });
+    console.log('thing?');
+  
+  
+    });
+  </script>
+  
 <script>
 
   // set variables to keep track of mouse , including dragging behavior (click and move)
@@ -314,3 +390,4 @@
 
   });
 </script>
+
