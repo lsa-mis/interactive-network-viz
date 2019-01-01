@@ -128,6 +128,21 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+<script src="https://d3js.org/d3-ease.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script src="https://d3js.org/d3-timer.v1.min.js"></script>
+<script src="https://d3js.org/d3-transition.v1.min.js"></script>
+<script src="https://d3js.org/d3-drag.v1.min.js"></script>
+<script src="https://d3js.org/d3-zoom.v1.min.js"></script>
+<script>
+
+// var zoom = d3.zoom();
+
+</script>
+
 <script>
     $(document).ready(function() {
   
@@ -140,7 +155,6 @@
       vertical: 'center' //optional
       
     });
-    console.log('thing?');
   
   
     });
@@ -161,33 +175,34 @@
       context = canvas.getContext("2d"),
       width = canvas.parentElement.clientWidth,
       height = canvas.parentElement.clientHeight;
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = canvas.parentElement.clientHeight;
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    
+    // context.call(d3.zoom()
+    // .scaleExtent([1 / 2, 4])
+    // .on("zoom", zoomed))
+    // .on("click", displayScale);
 
-//     window.onload = window.onresize = function() {
+// drawPoints();
 
-// canvas = document.getElementById('myCanvas');
-// canvas.width = window.innerWidth;
-// canvas.height = window.innerHeight;
-// width = canvas.width;
-// height = canvas.height;
-// context = canvas.getContext("2d");
-// }
+
   // set parameters for d3's force directed network simulation physics
 
   var simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.23))
-      .force("charge", d3.forceManyBody().strength(-450))
-      .force("collide", d3.forceCollide().radius(8))
+      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.75))
       .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("charge", d3.forceManyBody().strength(-1050))
+      .force("collide", d3.forceCollide().radius(2))
       .force("forceX", d3.forceX(width/2).strength(0.22) )
-      .force("forceY", d3.forceY(height/2).strength(0.25) );
+      .force("forceY", d3.forceY(height/2).strength(0.24) )
+      .alphaDecay(0.09);
 
   // load json data with edges (or "links") and nodes ("nodes")
   // for more on preparing this data, see parsing-tools/simplify_connections.py
 
   d3.json("clean_scalar_data.json", function(error, graph) {
     if (error) throw error;
+
 
     simulation
         .nodes(graph.nodes)
@@ -196,6 +211,10 @@
     simulation.force("link")
         .links(graph.links);
 
+    // d3.select("canvas").call(d3.zoom().scaleExtent([1, 8]).on("zoom", zoom));
+
+
+
     d3.select(canvas)
         .call(d3.drag()
             .container(canvas)
@@ -203,14 +222,45 @@
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended))
+
+    if (!currentlyDragging){
+        d3.select(canvas).call(d3.zoom().scaleExtent([0.5, 4]).on("zoom", zoomed)); }
         
       d3.select(canvas.nodes).on('mouseover', function(){
         console.log("test!");
       });
 
 
+    var k = 1;
+    var trans_x = 0;
+    var trans_y = 0;
+
+    function zoomed() {
+      simulation.stop();
+      context.save();
+      context.clearRect(0, 0, width, height);
+      context.translate(d3.event.transform.x, d3.event.transform.y);
+      context.scale(d3.event.transform.k, d3.event.transform.k);
+      k = d3.event.transform.k;
+      trans_x = d3.event.transform.x;
+      trans_y = d3.event.transform.y;
+      console.log(d3.zoomTransform(0,0));
+      ticked();
+      
+      // Method 1:
+      // console.log(d3.zoomTransform(canvas.drawNode()).k);
+      // console.log(d3.zoomTransform(canvas.drawLink()).k);
+      d3.zoomTransform(graph.nodes);
+      d3.zoomTransform(graph.links);
+      // Method 2:
+      // console.log(k);
+
+      context.restore();
+
+    }
     function ticked() {
       context.clearRect(0, 0, width, height);
+
 
       context.beginPath();
       graph.links.forEach(drawLink);
@@ -234,7 +284,15 @@
     }
 
     function dragsubject() {
-        return simulation.find(d3.event.x, d3.event.y);
+      // console.log(k);
+      // // console.log(trans_x);
+      // // console.log(trans_y);
+      let adjusted_x = (d3.event.x - trans_x)/k;
+      let adjusted_y = (d3.event.y- trans_y)/k;
+      console.log(adjusted_x);
+      console.log(adjusted_y);
+        return simulation.find(adjusted_x, adjusted_y, 25);
+
     }
 
 
@@ -242,11 +300,13 @@
       if (!d3.event.active) simulation.alphaTarget(0.3).restart();
       // console.log(d3.event.subject);
       
+      
       dragSubjectForFade = d3.event.subject;
       currentlyDragging = true;
 
       d3.event.subject.fx = d3.event.subject.x;
       d3.event.subject.fy = d3.event.subject.y;
+      
 
       var sidebarHeadline = document.getElementById("sidebar-headline");
       var sidebarLink = document.getElementById("sidebar-link");
@@ -295,7 +355,7 @@
   function dragged() {
       d3.event.subject.fx = d3.event.x;
       d3.event.subject.fy = d3.event.y;
-      simulation.alphaTarget(0.7);
+      simulation.alphaTarget(0.15);
   }
 
   function dragended() {
@@ -319,7 +379,7 @@
       if (d.extraData == "yes"){
         context.arc(d.x, d.y, 16, 0, 2 * Math.PI);
       } else {
-        context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+        context.arc(d.x, d.y, 5, 0, 2 * Math.PI);
       }
 
 
@@ -369,11 +429,14 @@
       
       };
 
+      // currentStyle = 'rgba(0, 0, 0, 0.88)';
+      // currentFont = '' + (12 + d.betweenness_centrality_score) + 'px Arial';
+
       context.fillStyle = currentStyle;
       context.font =  currentFont;
 
-      context.textAlign="center";
-      context.fillText(d.name, d.x + 5, d.y);
+      context.textAlign="left";
+      context.fillText(d.name, d.x + 3, d.y );
 
   }
       
