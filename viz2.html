@@ -196,7 +196,7 @@
       .force("collide", d3.forceCollide().radius(2))
       .force("forceX", d3.forceX(width/2).strength(0.22) )
       .force("forceY", d3.forceY(height/2).strength(0.24) )
-      .alphaDecay(0.06);
+      .alphaDecay(0.03);
 
   // load json data with edges (or "links") and nodes ("nodes")
   // for more on preparing this data, see parsing-tools/simplify_connections.py
@@ -305,8 +305,8 @@
       dragSubjectForFade = d3.event.subject;
       currentlyDragging = true;
 
-      d3.event.subject.fx = d3.event.subject.x;
-      d3.event.subject.fy = d3.event.subject.y;
+      // d3.event.subject.fx = d3.event.subject.x;
+      // d3.event.subject.fy = d3.event.subject.y;
       
 
       var sidebarHeadline = document.getElementById("sidebar-headline");
@@ -402,37 +402,37 @@
   function drawLabel(d) {
       var currentStyle = '';
       var currentFont = '';
-      if (currentlyDragging){
+      // if (currentlyDragging){
 
-          currentConnected = isConnected(d, dragSubjectForFade);
+      //     currentConnected = isConnected(d, dragSubjectForFade);
 
-          if (d != dragSubjectForFade && currentConnected == false){
-              currentStyle = 'rgba(0, 0, 0, 0.4';
-              currentFont = '12px Arial';
-          } else if ( d == dragSubjectForFade){
-              currentStyle = 'black';
-              currentFont = '30px Arial';
-          } else if (currentConnected == true){
-              currentStyle = 'rgba(0, 0, 0, 0.9)';
-              currentFont = '16px Arial';
+      //     if (d != dragSubjectForFade && currentConnected == false){
+      //         currentStyle = 'rgba(0, 0, 0, 0.4';
+      //         currentFont = '12px Arial';
+      //     } else if ( d == dragSubjectForFade){
+      //         currentStyle = 'black';
+      //         currentFont = '30px Arial';
+      //     } else if (currentConnected == true){
+      //         currentStyle = 'rgba(0, 0, 0, 0.9)';
+      //         currentFont = '16px Arial';
           
 
 
-        }} else    {
+      //   }} else    {
         
-            // if (d.extraData == "yes"){
-            //     currentStyle = 'rgba(0, 0, 0, 0.82)';
-            //     currentFont = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
+      //       // if (d.extraData == "yes"){
+      //       //     currentStyle = 'rgba(0, 0, 0, 0.82)';
+      //       //     currentFont = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
 
-            // } else {   
-                currentStyle = 'rgba(0, 0, 0, 0.88)';
-                currentFont = '' + (12 + d.betweenness_centrality_score) + 'px Arial';
-            // }
+      //       // } else {   
+      //           currentStyle = 'rgba(0, 0, 0, 0.88)';
+      //           currentFont = '' + (12 + d.betweenness_centrality_score) + 'px Arial';
+      //       // }
       
-      };
+      // };
 
-      // currentStyle = 'rgba(0, 0, 0, 0.88)';
-      // currentFont = '' + (12 + d.betweenness_centrality_score) + 'px Arial';
+      currentStyle = 'rgba(0, 0, 0, 0.88)';
+      currentFont = '' + (12 + d.betweenness_centrality_score) + 'px Arial';
 
       context.fillStyle = currentStyle;
       context.font =  currentFont;
