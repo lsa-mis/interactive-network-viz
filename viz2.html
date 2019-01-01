@@ -11,6 +11,7 @@
       /* Height & width depends on how you want to reveal the overlay (see JS below) */   
       height: 100%;
       width: 25%;
+
       position: fixed; /* Stay in place */
       z-index: 1; /* Sit on top */
       left: 75%;
@@ -104,7 +105,7 @@
       <div id="viz" style="height: 100%; width: 75%; ">
           
         
-        <canvas height= "800" width = "700" id="myCanvas">
+        <canvas height= "850" width = "700" id="myCanvas">
         </canvas>
       </div>
 
@@ -195,7 +196,7 @@
       .force("collide", d3.forceCollide().radius(2))
       .force("forceX", d3.forceX(width/2).strength(0.22) )
       .force("forceY", d3.forceY(height/2).strength(0.24) )
-      .alphaDecay(0.09);
+      .alphaDecay(0.06);
 
   // load json data with edges (or "links") and nodes ("nodes")
   // for more on preparing this data, see parsing-tools/simplify_connections.py
@@ -297,7 +298,7 @@
 
 
   function dragstarted() {
-      if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+      // if (!d3.event.active) simulation.alphaTarget(0.3).restart();
       // console.log(d3.event.subject);
       
       
@@ -337,7 +338,7 @@
           elem.setAttribute("alt", description);
 
           document.getElementById("sidebar-content").appendChild(elem);
-          
+                
 
       } else {
 
@@ -353,14 +354,15 @@
     }
 
   function dragged() {
-      d3.event.subject.fx = d3.event.x;
-      d3.event.subject.fy = d3.event.y;
-      simulation.alphaTarget(0.15);
+      // d3.event.subject.fx = d3.event.x;
+      // d3.event.subject.fy = d3.event.y;
+      // simulation.alphaTarget(0.15);
+
   }
 
   function dragended() {
-      if (!d3.event.active) simulation.alphaTarget(0);
-      console.log(d3.event.subject);
+      // if (!d3.event.active) simulation.alphaTarget(0);
+      // console.log(d3.event.subject);
 
 
       d3.event.subject.fx = null;
