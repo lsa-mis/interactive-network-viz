@@ -193,7 +193,7 @@
       .force("collide", d3.forceCollide().radius(2))
       .force("forceX", d3.forceX(width/2).strength(0.22) )
       .force("forceY", d3.forceY(height/2).strength(0.24) )
-      .alphaDecay(0.03);
+      .alphaDecay(0.025);
 
   // load json data with edges (or "links") and nodes ("nodes")
   // for more on preparing this data, see parsing-tools/simplify_connections.py
