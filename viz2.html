@@ -190,12 +190,12 @@
   // set parameters for d3's force directed network simulation physics
 
   var simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(1.25))
+      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(1.35))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("charge", d3.forceManyBody().strength(-1850))
-      .force("collide", d3.forceCollide().radius(2))
-      .force("forceX", d3.forceX(width/2).strength(0.25) )
-      .force("forceY", d3.forceY(height/2).strength(0.25) )
+      .force("charge", d3.forceManyBody().strength(-3000))
+      .force("collide", d3.forceCollide().radius(4))
+      .force("forceX", d3.forceX(width/2).strength(0.3) )
+      .force("forceY", d3.forceY(height/2).strength(0.3) )
       .alphaDecay(0.03);
 
   // load json data with edges (or "links") and nodes ("nodes")
@@ -225,7 +225,7 @@
             .on("end", dragended))
 
     if (!currentlyDragging){
-        d3.select(canvas).call(d3.zoom().scaleExtent([0.7, 2.5]).on("zoom", zoomed)); }
+        d3.select(canvas).call(d3.zoom().scaleExtent([0.5, 2.5]).on("zoom", zoomed)); }
         
       d3.select(canvas.nodes).on('mouseover', function(){
         console.log("test!");
@@ -391,9 +391,9 @@
   function drawNode(d) {
       context.moveTo(d.x + 3, d.y);
       if (d.extraData == "yes"){
-        context.arc(d.x, d.y, 16, 0, 2 * Math.PI);
+        context.arc(d.x, d.y, 8, 0, 2 * Math.PI);
       } else {
-        context.arc(d.x, d.y, 5, 0, 2 * Math.PI);
+        context.arc(d.x, d.y, 1, 0, 2 * Math.PI);
       }
 
 

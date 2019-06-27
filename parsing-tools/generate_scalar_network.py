@@ -196,7 +196,7 @@ def main():
 
     # set filenames for input .json (from Scalar API explorer) and output .json
     # input_file = "scalar_output.json"
-    input_file = "sept_output.json"
+    input_file = "june_output.json"
     output_file = "clean_scalar_data.json"
 
     # load Scalar data .json file into Python data
