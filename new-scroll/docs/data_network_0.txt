@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Avrom Goldfaden"
+    }
+  ],
+  "links": [
+  ]
+}
