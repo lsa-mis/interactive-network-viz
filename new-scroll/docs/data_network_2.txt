@@ -2,23 +2,31 @@
   "nodes": [
     {
       "id": 1,
-      "name": "Avrom Goldfaden"
+      "name": "Sholem Asch"
     },
     {
       "id": 2,
-      "name": "Odessa"
+      "name": "Warsaw"
     },
     {
       "id": 3,
-      "name": "New York City"
+      "name": "Berlin"
     },
     {
       "id": 4,
-      "name": "Jacob Alder"
+      "name": "Tel Aviv"
     },
     {
       "id": 5,
-      "name": "Café Franconi"
+      "name": "New York City"
+    },
+    {
+      "id": 6,
+      "name": "Kotik's Café"
+    },
+    {
+      "id": 7,
+      "name": "Avrom Reyzen"
     }
   ],
   "links": [
@@ -33,11 +41,19 @@
     },
     {
       "source": 1,
+      "target": 4
+    },
+    {
+      "source": 1,
       "target": 5
     },
     {
-      "source": 4,
-      "target": 5
+      "source": 2,
+      "target": 6
+    },
+    {
+      "source": 6,
+      "target": 7
     }
   ]
 }

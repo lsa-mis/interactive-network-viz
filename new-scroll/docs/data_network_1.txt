@@ -2,14 +2,22 @@
   "nodes": [
     {
       "id": 1,
-      "name": "Avrom Goldfaden"
+      "name": "Sholem Asch"
     },
     {
       "id": 2,
-      "name": "Odessa"
+      "name": "Warsaw"
     },
     {
       "id": 3,
+      "name": "Berlin"
+    },
+    {
+      "id": 4,
+      "name": "Tel Aviv"
+    },
+    {
+      "id": 5,
       "name": "New York City"
     }
   ],
@@ -22,6 +30,14 @@
     {
       "source": 1,
       "target": 3
+    },
+    {
+      "source": 1,
+      "target" : 4
+    },
+    {
+      "source": 1,
+      "target": 5
     }
   ]
 }
