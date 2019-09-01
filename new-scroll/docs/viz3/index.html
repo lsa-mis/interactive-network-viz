@@ -121,21 +121,15 @@
 						connecting lines are called <b>edges</b> in network graphs.</p>
 				</div>
 				<div class='step' data-step='3'>
-					<h1>Goldfaden and Alder</h1>
-					<p>Although we may associate Goldfaden most strongly with New York, Odessa is where he made his
-						first impression. Jacob Alder was one of the many Odessa residents who gathered in Café Fanconi
-						gossiping about the theater scene. A year after his military service, Alder succeeded in joining
-						Goldfaden's troupe in Odessa.</p>
-					<p>Our graph now reflects the role Café Fanconi played in connecting Goldfaden and Alder.</p>
+					<h1>Asch and Reyzen</h1>
+					<p>One café that the young Sholem Asch frequented during his stay in Warsaw was Kotik’s, a small and affordable café which attracted many Jewish writers, intellectuals, and activists. We know that Asch would often take coffee in Kotik’s with his friend and fellow writer, Avrom Reyzen.</p>
+					<p>Our graph now reflects the role Kotik’s Café played in connecting Asch and Reyzen.</p>
 				</div>
 				<div class='step' data-step='4'>
 					<h1>The network grows</h1>
-					<p>The encounter between Goldfaden and Alder represent only one of countless pathways of
-						immigration, conversation, and happenstance that wove through Jewish cafés across the world.</p>
-					<p>With each city, café, and individual, the network becomes more complex. The job of a network
-						graph is to allow you to investigate specific pathways, as well as see big-picure patterns
-						across hundreds of entities.</p>
-					<p>Ready explore the network visualization as a whole? Click the link below.</p>
+					<p>The encounter between Asch and Reyzen represents only one of countless pathways of immigration, conversation, and happenstance that connected Jewish cafés across the world.</p>
+					<p>With each city, café, and individual, the network becomes more complex. The job of a network graph is to allow you to investigate specific pathways, as well as see big-picture patterns across hundreds of entities.</p>
+					<p>Ready to explore the network visualization as a whole? Click the link below</p>
 				</div>
 			</article>
 
@@ -278,7 +272,7 @@
 						.links(data.links) // and this the list of links
 					)
 					.force("charge", d3.forceManyBody().strength(-
-					1600)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+					1200)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
 					.force("center", d3.forceCenter(width / 2, height /
 					2)) // This force attracts nodes to the center of the svg area
 					.on("tick", ticked);
