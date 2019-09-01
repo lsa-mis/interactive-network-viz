@@ -155,6 +155,12 @@
 	<script src='../stickyfill.min.js'></script>
 	<script src='../scrollama.min.js'></script>
 	<script>
+		
+		// scroll to top
+
+		window.onbeforeunload = function () {
+		window.scrollTo(0, 0);
+		}
 		// using d3 for convenience
 		var main = d3.select('main')
 		var scrolly = main.select('#scrolly');
