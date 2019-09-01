@@ -44,7 +44,7 @@
 
 		figure p {
 			text-align: center;
-			padding: 1rem;
+			padding: 0rem;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -64,7 +64,7 @@
 			/* margin: 0 auto 2rem auto; */
 			background-color: #3b3b3b;
 			color: #fff;
-			padding: 2rem;
+			padding: 2rem 2rem 0rem 4rem;
 		}
 
 		.step:last-child {
@@ -77,13 +77,14 @@
 		}
 
 		.step h1 {
-			margin: 2rem;
+			margin: 1rem;
+			font-size: 1.6rem;
 		}
 
 		.step p {
 			/* text-align: center; */
 			padding: 1rem;
-			font-size: 1.25rem;
+			font-size: 1.2rem;
 		}
 	</style>
 
@@ -163,7 +164,7 @@
 		var figure = scrolly.select('figure');
 		var article = scrolly.select('article');
 		var step = article.selectAll('.step');
-		var link, node, height, width, svg;
+		var link, node, height, width, svg, nodelabels;
 
 		// initialize the scrollama
 		var scroller = scrollama();
@@ -234,7 +235,7 @@
 		function drawNetwork(current_step_URL) {
 			console.log('stuff!')
 
-			var width = 600;
+			var width = window.innerWidth * 0.5;
 			var height = window.innerHeight * 0.66;
 
 			d3.select('figure').selectAll('svg').remove();
@@ -276,12 +277,17 @@
 				case "cafe":
 					return "#632597";
 				default:
-					return "#69b3a2";
-
-				
+					return "#69b3a2";	
 			}
 
+
 					})
+				nodelabels = svg.
+					selectAll("nodelabels") 
+					.data(data.nodes)
+					.enter()
+					.append("text")
+					.text(function(d){return d.name;});
 
 
 				var simulation = d3.forceSimulation(data.nodes) // Force algorithm is applied to data.nodes
@@ -293,8 +299,8 @@
 					)
 					.force("charge", d3.forceManyBody().strength(-
 					1000)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
-					.force("center", d3.forceCenter(width / 2, height /
-					2)) // This force attracts nodes to the center of the svg area
+					.force("center", d3.forceCenter(width * 0.4, height * 0.4
+					)) // This force attracts nodes to the center of the svg area
 					.on("tick", ticked);
 
 				console.log(simulation);
@@ -327,6 +333,15 @@
 					.attr("cy", function (d) {
 						return d.y;
 					});
+
+				nodelabels
+					.attr("x", function(d) { 
+						return d.x + 18; 
+					}) 
+                  	.attr("y", function(d) { return d.y + 4; 
+					})
+					.attr("font-size", "12px")
+
 			}
 		}
 
