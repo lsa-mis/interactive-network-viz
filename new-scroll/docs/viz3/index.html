@@ -121,16 +121,18 @@
 						connecting lines are called <b>edges</b> in network graphs.</p>
 				</div>
 				<div class='step' data-step='3'>
+						<h1>Kotik’s</h1>
+						<p>Kotik's Café was a popular café in Warsaw. We've added the café to our graph as a dark purple node.</p>
+					</div>
+				<div class='step' data-step='4'>
 					<h1>Asch and Reyzen</h1>
 					<p>One café that the young Sholem Asch frequented during his stay in Warsaw was Kotik’s, a small and affordable café which attracted many Jewish writers, intellectuals, and activists. We know that Asch would often take coffee in Kotik’s with his friend and fellow writer, Avrom Reyzen.</p>
-					<p>Our graph now reflects the role Kotik’s Café played in connecting Asch and Reyzen.</p>
+					<p>Take a look at the graph. We can now trace the connection between Asch and Reyzen through two nodes: Warsaw and Kotik's.</p>
 				</div>
-				<div class='step' data-step='4'>
+				<div class='step' data-step='5'>
 					<h1>The network grows</h1>
 					<p>The encounter between Asch and Reyzen represents only one of countless pathways of immigration, conversation, and happenstance that connected Jewish cafés across the world.</p>
-					<p>With each city, café, and individual, the network becomes more complex. The job of a network graph is to allow you to investigate specific pathways, as well as see big-picture patterns across hundreds of entities.</p>
-					<p>Ready to explore the network visualization as a whole? Click the link below</p>
-				</div>
+					<p>Once we realize that Asch, Reyzen, Warsaw, and Kotik's are all connected, our understanding of relationships between café-goers becomes much more complex! The purpose of a network graph is to allow you to investigate specific pathways, as well as see big-picture patterns across hundreds of entities.</p>				</div>
 			</article>
 
 			<figure>
@@ -139,7 +141,7 @@
 		</section>
 
 		<section id='outro'>
-			<div style="text-align: center"><a href="https://mapping.judaic.lsa.umich.edu/people.html">View full visualization</a></div>
+			<div style="text-align: center"><a href="https://mapping.judaic.lsa.umich.edu/people.html">Ready to explore the full visualization? Click here.</a></div>
 		</section>
 	</main>
 
@@ -211,6 +213,10 @@
 					URL = '../data_network_3.txt'
 					console.log(3);
 					break;
+				case 4:
+					URL = '../data_network_4.txt'
+					console.log(4);
+					break;
 
 				
 			}
@@ -261,7 +267,21 @@
 					.enter()
 					.append("circle")
 					.attr("r", 16)
-					.style("fill", "#69b3a2")
+					.style("fill", function(d){
+						switch(d.type){
+				case "city":
+					return "#837090";
+				case "person":
+					return "#69b3a2";
+				case "cafe":
+					return "#632597";
+				default:
+					return "#69b3a2";
+
+				
+			}
+
+					})
 
 
 				var simulation = d3.forceSimulation(data.nodes) // Force algorithm is applied to data.nodes

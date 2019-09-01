@@ -29,6 +29,11 @@
       "id": 6,
       "name": "Kotik's Café",
       "type": "cafe"
+    },
+    {
+      "id": 7,
+      "name": "Avrom Reyzen",
+      "type": "person"
     }
   ],
   "links": [
@@ -52,6 +57,21 @@
     {
       "source": 2,
       "target": 6
-    }
+    },
+    {
+      "source": 6,
+      "target": 7
+    },
+    {
+      "source": 2,
+      "target": 7
+    },
+    {
+      "source": 1,
+      "target": 7
+    },
+    {
+      "source": 1,
+      "target": 6}
   ]
 }

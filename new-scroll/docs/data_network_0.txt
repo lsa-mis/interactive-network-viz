@@ -2,7 +2,8 @@
   "nodes": [
     {
       "id": 1,
-      "name": "Sholem Asch"
+      "name": "Sholem Asch",
+      "type": "person"
     }
   ],
   "links": [

@@ -2,31 +2,38 @@
   "nodes": [
     {
       "id": 1,
-      "name": "Sholem Asch"
+      "name": "Sholem Asch",
+      "type": "person"
     },
     {
       "id": 2,
-      "name": "Warsaw"
+      "name": "Warsaw",
+      "type": "city"
     },
     {
       "id": 3,
-      "name": "Berlin"
+      "name": "Berlin",
+      "type": "city"
     },
     {
       "id": 4,
-      "name": "Tel Aviv"
+      "name": "Tel Aviv",
+      "type": "city"
     },
     {
       "id": 5,
-      "name": "New York City"
+      "name": "New York City",
+      "type": "city"
     },
     {
       "id": 6,
-      "name": "Kotik's Café"
+      "name": "Kotik's Café",
+      "type": "cafe"
     },
     {
       "id": 7,
-      "name": "Avrom Reyzen"
+      "name": "Avrom Reyzen",
+      "type": "person"
     }
   ],
   "links": [
@@ -53,14 +60,6 @@
     },
     {
       "source": 6,
-      "target": 7
-    },
-    {
-      "source": 2,
-      "target": 7
-    },
-    {
-      "source": 1,
       "target": 7
     }
   ]

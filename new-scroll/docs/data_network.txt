@@ -2,7 +2,8 @@
   "nodes": [
     {
       "id": 1,
-      "name": "Avrom Goldfaden"
+      "name": "Sholem Asch",
+      "type": "person"
     }
   ],
   "links": [
