@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+  <style>
+    /* The Overlay (background) */
+    body {
+      font-family: Arial;
+    }
+    .overlay {
+      /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+      height: 100%;
+      width: 25%;
+
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 75%;
+      top: 0;
+      background-color: rgba(0,0,0, 0.8); /* Black w/opacity */
+    }
+
+    .overlay-box {
+      margin: 10%;
+      padding: 6px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 1); /* Black w/opacity */
+    }
+    .overlay-box a {
+      padding: 5%;
+      text-decoration: none;
+      color: #3c39db;
+    }
+    .overlay-box h2 {
+      text-align: center;
+      margin: 8px;
+    }
+    /* .scalarLink {
+      font-size: 2.8em ;
+    } */
+    #sidebar-content {
+      margin: 5% 10%;
+      padding: 10px;
+      line-height: 1.3;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0); /* Black w/opacity */
+      
+
+    }
+    #sidebar-content.active {
+      background-color: rgba(255, 255, 255, 0.9); /* Black w/opacity */
+    
+    
+
+    }
+    #slide_background {
+      transition: all 0.3s 0.3s;
+    }
+    #slide,
+    #slide_wrapper {
+      transition: all 0.3s ease-out;
+      height: 100%;
+      width: 50%;
+    }
+    #slide {
+      transform: translateX(25%) translateY(20%);
+    }
+    .popup_visible #slide {
+      transform: translateX(-25%) translateY(5%);
+    }
+  </style>
+  <body>
+
+      <div id="slide">
+        <div style="background-color: white; padding: 10px;">
+
+          <div>
+            Welcome to the <b>people as network visualization tool!</b>
+          </div>
+          <hr>
+          <div>
+            This tool lets you explore <b>individuals</b> (such as writers, café owners, famous community members), <b>cafés</b>, and <b>cities</b> that appear throughout the Jewish Cafés project. Here, we visualize these individuals, cafés, and cities as a  <b>network of connectionsnodes</b>.
+            <br >
+            <br >
+            See more of the map by zooming with touch gestures/a scroll wheel, or clicking and dragging blank spaces to reposition the network.
+            <br >
+            <br >
+            <img src="example_of_grab.png" style ="border: 2px solid">
+            <br >
+            <br >
+            Many nodes have additional content within our Scalar book, which you can explore further by the link on the right-hand side. These nodes appear as large circles.
+            <br >
+            <br >
+
+
+
+
+          </div>
+
+
+      
+          <!-- Add an optional button to close the popup -->
+          <button class="slide_close">Close</button>
+        </div>
+          </div>
+      <div id="viz" style="height: 100%; width: 75%; ">
+          
+        
+        <canvas height= "850" width = "700" id="myCanvas">
+        </canvas>
+      </div>
+
+      <div id="network-viz-sidebar" class="overlay">
+        <div class = "overlay-box">
+          <h2 id="sidebar-headline">Explore relationships between people, cafés, and cities as a network</h2>        
+          <div id="sidebar-link"></div>
+
+        </div>
+        <div id="sidebar-content"></div>
+        </div>
+      </div>
+
+
+  </body>
+
+</html>
+
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+<script src="https://d3js.org/d3-ease.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script src="https://d3js.org/d3-timer.v1.min.js"></script>
+<script src="https://d3js.org/d3-transition.v1.min.js"></script>
+<script src="https://d3js.org/d3-drag.v1.min.js"></script>
+<script src="https://d3js.org/d3-zoom.v1.min.js"></script>
+<script>
+
+// var zoom = d3.zoom();
+
+</script>
+
+<script>
+    $(document).ready(function() {
+  
+      // Initialize the plugin
+        $('#slide').popup({
+      outline: false, // optional
+      focusdelay: 1000,
+      autoopen: true,
+      blur: true,
+      vertical: 'center' //optional
+      
+    });
+  
+  
+    });
+  </script>
+  
+<script>
+
+  // set variables to keep track of mouse , including dragging behavior (click and move)
+
+  var mousePosX = 0;
+  var mousePosY = 0;
+  var dragSubjectForFade = null;
+  var currentlyDragging = false;
+
+  // set up 2d canvas
+
+  var canvas = document.querySelector("canvas"),
+      context = canvas.getContext("2d"),
+      width = canvas.parentElement.clientWidth,
+      height = canvas.parentElement.clientHeight;
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    
+    // context.call(d3.zoom()
+    // .scaleExtent([1 / 2, 4])
+    // .on("zoom", zoomed))
+    // .on("click", displayScale);
+
+// drawPoints();
+
+
+  // set parameters for d3's force directed network simulation physics
+
+  var simulation = d3.forceSimulation()
+      .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(1.85))
+      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("charge", d3.forceManyBody().strength(-2800))
+      .force("collide", d3.forceCollide().radius(10))
+      .force("forceX", d3.forceX(width/2).strength(0.2) )
+      .force("forceY", d3.forceY(height/2).strength(0.2) )
+      .alphaDecay(0.03);
+
+  // load json data with edges (or "links") and nodes ("nodes")
+  // for more on preparing this data, see parsing-tools/simplify_connections.py
+
+  d3.json("clean_scalar_data.json", function(error, graph) {
+    if (error) throw error;
+
+
+    simulation
+        .nodes(graph.nodes)
+        .on("tick", ticked);
+
+    simulation.force("link")
+        .links(graph.links);
+
+    // d3.select("canvas").call(d3.zoom().scaleExtent([1, 8]).on("zoom", zoom));
+
+
+
+    d3.select(canvas)
+        .call(d3.drag()
+            .container(canvas)
+            .subject(dragsubject)
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended))
+
+    if (!currentlyDragging){
+        d3.select(canvas).call(d3.zoom().scaleExtent([0.5, 2.5]).on("zoom", zoomed)); }
+        
+      d3.select(canvas.nodes).on('mouseover', function(){
+        console.log("test!");
+      });
+
+
+    var k = 1;
+    var trans_x = 0;
+    var trans_y = 0;
+
+    function zoomed() {
+      simulation.stop();
+      context.save();
+      context.clearRect(0, 0, width, height);
+      context.translate(d3.event.transform.x, d3.event.transform.y);
+      context.scale(d3.event.transform.k, d3.event.transform.k);
+      k = d3.event.transform.k;
+      trans_x = d3.event.transform.x;
+      trans_y = d3.event.transform.y;
+      console.log(d3.zoomTransform(0,0));
+      ticked();
+      
+      // Method 1:
+      // console.log(d3.zoomTransform(canvas.drawNode()).k);
+      // console.log(d3.zoomTransform(canvas.drawLink()).k);
+      // d3.zoomTransform(graph.nodes);
+      // d3.zoomTransform(graph.links);
+      // Method 2:
+      // console.log(k);
+
+      context.restore();
+
+    }
+    function ticked() {
+      context.clearRect(0, 0, width, height);
+
+
+      context.beginPath();
+      graph.links.forEach(drawLink);
+      context.strokeStyle = "rgba(5, 5, 5, 0.15)";
+      context.stroke();
+
+      context.fillStyle = 'rgba(0, 128, 128, 0.35)';
+      context.beginPath();
+      graph.nodes.forEach(drawNode);
+      context.closePath();
+      context.fill();
+
+      // if(dragSubjectForFade){
+      //   context.fillStyle = 'rgba(0, 128, 128, 0.85)';
+      //   context.beginPath();
+      //   drawNode(dragSubjectForFade);
+      //   context.closePath();
+      //   context.fill();
+
+      // }
+
+
+
+      context.fillStyle = 'black';
+      context.beginPath();
+      graph.nodes.forEach(drawLabel);
+      context.closePath();
+      context.fill();
+
+      // context.strokeStyle = "#fff";
+      // context.stroke();
+    }
+
+    function dragsubject() {
+      // console.log(k);
+      // // console.log(trans_x);
+      // // console.log(trans_y);
+      let adjusted_x = (d3.event.x - trans_x)/k;
+      let adjusted_y = (d3.event.y- trans_y)/k;
+      console.log(adjusted_x);
+      console.log(adjusted_y);
+        return simulation.find(adjusted_x, adjusted_y, 25);
+
+    }
+
+
+  function dragstarted() {
+      // if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+      // console.log(d3.event.subject);
+      
+      
+      dragSubjectForFade = d3.event.subject;
+      currentlyDragging = true;
+
+      // d3.event.subject.fx = d3.event.subject.x;
+      // d3.event.subject.fy = d3.event.subject.y;
+      
+
+      var sidebarHeadline = document.getElementById("sidebar-headline");
+      var sidebarLink = document.getElementById("sidebar-link");
+
+      sidebarHeadline.innerHTML = "";
+
+      var linkToScalar = document.createElement("a")
+      linkToScalar.setAttribute("href", d3.event.subject.url)
+      linkToScalar.setAttribute("target", "_blank");
+      linkToScalar.setAttribute("id", "scalarLink");
+
+
+      while (sidebarLink.firstChild) {
+          sidebarLink.removeChild(sidebarLink.firstChild);}
+
+      sidebarHeadline.appendChild(linkToScalar);
+      document.getElementById("scalarLink").innerHTML = d3.event.subject.name;
+
+      if(d3.event.subject.extraData == "yes"){
+          document.getElementById("sidebar-content").classList.add("active");
+          imageURL = d3.event.subject.imageURL;
+          description = d3.event.subject.description;
+          document.getElementById("sidebar-content").innerHTML = description + "<br><hr >";
+
+          var elem = document.createElement("img");
+          elem.setAttribute("src", imageURL);
+          elem.setAttribute("height", "100%");
+          elem.setAttribute("width", "100%");
+          elem.setAttribute("alt", description);
+
+          document.getElementById("sidebar-content").appendChild(elem);
+                
+
+      } else {
+
+            document.getElementById("sidebar-content").classList.remove("active");
+
+
+            while (document.getElementById("sidebar-content").firstChild) {
+                document.getElementById("sidebar-content").removeChild(document.getElementById("sidebar-content").firstChild);
+      }
+        
+
+      }
+    }
+
+  function dragged() {
+      // d3.event.subject.fx = d3.event.x;
+      // d3.event.subject.fy = d3.event.y;
+      // simulation.alphaTarget(0.15);
+
+  }
+
+  function dragended() {
+      // if (!d3.event.active) simulation.alphaTarget(0);
+      // console.log(d3.event.subject);
+
+
+      d3.event.subject.fx = null;
+      d3.event.subject.fy = null;
+      currentlyDragging = false;
+      dragSubjectForFade = null;
+  }
+
+  function drawLink(d) {
+      context.moveTo(d.source.x, d.source.y);
+      context.lineTo(d.target.x, d.target.y);
+  }
+
+  function drawNode(d) {
+      context.moveTo(d.x + 3, d.y);
+      if (d.extraData == "yes"){
+        context.arc(d.x, d.y, 10, 0, 2 * Math.PI);
+      } else {
+        context.arc(d.x, d.y, 1, 0, 2 * Math.PI);
+      }
+
+
+    // draw nodes that are either being dragged or immediate neighbor
+
+    if (currentlyDragging)
+      { 
+        
+        if (d != dragSubjectForFade) 
+          {   if (isConnected(d, dragSubjectForFade)) context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+          } else 
+            {
+              context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+            }
+    }
+        ;
+    
+  }
+
+  function drawLabel(d) {
+      var currentStyle = '';
+      var currentFont = '';
+      // if (currentlyDragging){
+
+      //     currentConnected = isConnected(d, dragSubjectForFade);
+
+      //     if (d != dragSubjectForFade && currentConnected == false){
+      //         currentStyle = 'rgba(0, 0, 0, 0.4';
+      //         currentFont = '12px Arial';
+      //     } else if ( d == dragSubjectForFade){
+      //         currentStyle = 'black';
+      //         currentFont = '30px Arial';
+      //     } else if (currentConnected == true){
+      //         currentStyle = 'rgba(0, 0, 0, 0.9)';
+      //         currentFont = '16px Arial';
+          
+
+
+      //   }} else    {
+        
+      //       // if (d.extraData == "yes"){
+      //       //     currentStyle = 'rgba(0, 0, 0, 0.82)';
+      //       //     currentFont = 'small-caps ' + (12 + d.betweenness_centrality_score) + 'px Arial ';
+
+      //       // } else {   
+      //           currentStyle = 'rgba(0, 0, 0, 0.88)';
+      //           currentFont = '' + (12 + d.betweenness_centrality_score) + 'px Arial';
+      //       // }
+      
+      // };
+
+      currentStyle = 'rgba(0, 0, 0, 0.88)';
+      currentFont = '' + (12 + d.betweenness_centrality_score) + 'px Arial';
+
+      context.fillStyle = currentStyle;
+      context.font =  currentFont;
+
+      context.textAlign="left";
+      context.fillText(d.name, d.x + 3, d.y );
+
+  }
+      
+
+  var linkedByIndex = {};
+  graph.links.forEach(function(d) {
+      linkedByIndex[d.source.index + "," + d.target.index] = 1;
+  });
+
+  // check the dictionary to see if nodes are linked
+  function isConnected(a, b) {
+      return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+  }
+
+  });
+</script>
+
