@@ -15,7 +15,7 @@
 			display: -ms-flexbox;
 			display: flex;
 			background-color: #f3f3f3;
-			padding: 1rem;
+			padding: 0.5rem;
 		}
 
 		#scrolly>* {
@@ -27,8 +27,8 @@
 
 		article {
 			position: relative;
-			padding: 0 1rem;
-			max-width: 60rem;
+			padding: 0 0.5rem;
+			max-width: 20%;
 		}
 
 		figure {
@@ -46,11 +46,11 @@
 			text-align: center;
 			padding: 1rem;
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			-moz-transform: translate(-50%, -50%);
-			-webkit-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
+			top: 25%;
+			left: 25%;
+			-moz-transform: translate(-25%, -25%);
+			-webkit-transform: translate(-25%, -25%);
+			transform: translate(-25%, -25%);
 			font-size: 8rem;
 			font-weight: 900;
 			color: #fff;
@@ -94,12 +94,9 @@
 
 	<main>
 
-		<section id='intro'>
+		<section id='intro' style="height: 200px !important;">
 			<div id='introbox'>
 				<h1 class='intro__hed'>Browse by people</h1>
-				<p class='intro__dek'>
-					Scroll to learn how the network visualization works.
-				</p>
 			</div>
 		</section>
 
@@ -107,33 +104,9 @@
 
 			<article>
 				<div class='step' data-step='1'>
-					<h1>Why visualize people as a network?</h1>
-					<p>A <b>network graph</b> is a visual representation of the interconnections between many entities.
-					</p>
-					<p>When it comes to relationships between individuals, we often think of direct relationships: friendships, collaborations, romances. But individuals are also richly interconnected through mutual acquaintances, through cities, and through cafés.</p>
-
-					<p>Let's take the example of Sholem Asch, the Yiddish novelist and playwright. Here he is shown as a circle or <b>node</b>. </p>
+					<h1>Explore the data to your left</h1>
+					<p>Here we will add some options to see items in your network, item by item</p>
 				</div>
-				<div class='step' data-step='2'>
-					<h1>Sholem Asch</h1>
-					<p>Sholem Asch lived and worked in Warsaw, Berlin, New York City, and Tel Aviv, where he published stories in Yiddish and Hebrew and had his plays staged in a variety of languages. Asch also mingled with other Jewish writers in the cafés of each city he lived in.</p>
-					<p>We now have five entities: four cities and one person. </p>
-					<p>To show Asch is associated with each cities, we use lines. In this case, each city connects with Asch, whose node appears in the center of the graph. These
-						connecting lines are called <b>edges</b> in network graphs.</p>
-				</div>
-				<div class='step' data-step='3'>
-						<h1>Kotik’s</h1>
-						<p>Kotik's Café was a popular café in Warsaw. We've added the café to our graph as a dark purple node.</p>
-					</div>
-				<div class='step' data-step='4'>
-					<h1>Asch and Reyzen</h1>
-					<p>One café that the young Sholem Asch frequented during his stay in Warsaw was Kotik’s, a small and affordable café which attracted many Jewish writers, intellectuals, and activists. We know that Asch would often take coffee in Kotik’s with his friend and fellow writer, Avrom Reyzen.</p>
-					<p>Take a look at the graph. We can now trace the connection between Asch and Reyzen through two nodes: Warsaw and Kotik's.</p>
-				</div>
-				<div class='step' data-step='5'>
-					<h1>The network grows</h1>
-					<p>The encounter between Asch and Reyzen represents only one of countless pathways of immigration, conversation, and happenstance that connected Jewish cafés across the world.</p>
-					<p>Once we realize that Asch, Reyzen, Warsaw, and Kotik's are all connected, our understanding of relationships between café-goers becomes much more complex! The purpose of a network graph is to allow you to investigate specific pathways, as well as see big-picture patterns across hundreds of entities.</p>				</div>
 			</article>
 
 			<figure>
@@ -141,9 +114,11 @@
 			</figure>
 		</section>
 
+
 		<section id='outro'>
-			<div style="text-align: center"><a href="index_big_viz.html">Ready to explore the full visualization? Click here.</a></div>
-		</section>
+				<div style="text-align: center"><a href="index.html">Back to the tutorial</a></div>
+			</section>
+
 	</main>
 
 	<!-- <div class='debug'></div> -->
@@ -156,7 +131,7 @@
 		// scroll to top
 
 		window.onbeforeunload = function () {
-		window.scrollTo(0, 0);
+		window.scrollTo(0, 200);
 		}
 		// using d3 for convenience
 		var main = d3.select('main')
@@ -172,10 +147,10 @@
 		// generic window resize listener event
 		function handleResize() {
 			// 1. update height of step elements
-			var stepH = Math.floor(window.innerHeight * 0.66);
+			var stepH = Math.floor(window.innerHeight * 1);
 			step.style('height', stepH + 'px');
 
-			var figureHeight = window.innerHeight * 0.66
+			var figureHeight = window.innerHeight * 0.95
 			var figureMarginTop = (window.innerHeight - figureHeight) / 2
 
 			figure
@@ -199,7 +174,7 @@
 			var URL = "";
 			switch(response.index){
 				case 0:
-					URL = '../data_network_0.txt'
+					URL = '../clean_scalar_data.txt'
 					console.log(0);
 					break;
 				case 1:
@@ -235,8 +210,8 @@
 		function drawNetwork(current_step_URL) {
 			console.log('stuff!')
 
-			var width = window.innerWidth * 0.5;
-			var height = window.innerHeight * 0.66;
+			var width = window.innerWidth * 0.75;
+			var height = window.innerHeight * 0.95;
 
 			d3.select('figure').selectAll('svg').remove();
 
@@ -253,6 +228,8 @@
 			d3.json(current_step_URL).then(function (data) {
 				console.log(data.links)
 
+
+
 				// Initialize the links
 				link = svg
 					.selectAll("line")
@@ -267,10 +244,10 @@
 					.data(data.nodes)
 					.enter()
 					.append("circle")
-					.attr("r", 16)
+					.attr("r", 4)
 					.style("fill", function(d){
-						switch(d.type){
-				case "city":
+						switch(d.city){
+				case "True":
 					return "#e6be8a";
 				case "person":
 					return "#69b3a2";
@@ -292,6 +269,7 @@
 					.text(function(d){return d.name;});
 
 
+
 				var simulation = d3.forceSimulation(data.nodes) // Force algorithm is applied to data.nodes
 					.force("link", d3.forceLink() // This force provides links between nodes
 						.id(function (d) {
@@ -300,8 +278,8 @@
 						.links(data.links) // and this the list of links
 					)
 					.force("charge", d3.forceManyBody().strength(-
-					1200)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
-					.force("center", d3.forceCenter(width * 0.4, height * 0.4
+					55)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+					.force("center", d3.forceCenter(width * 0.5, height * 0.4
 					)) // This force attracts nodes to the center of the svg area
 					.on("tick", ticked);
 
@@ -342,7 +320,14 @@
 					}) 
                   	.attr("y", function(d) { return d.y + 4; 
 					})
-					.attr("font-size", "12px")
+					.attr("font-size", function(d){
+						switch(d.city){
+							case "True":
+								return 20;
+							default:
+								return 7;
+						} })
+					
 
 			}
 		}
