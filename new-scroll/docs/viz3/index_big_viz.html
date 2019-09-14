@@ -174,7 +174,7 @@
 			var URL = "";
 			switch(response.index){
 				case 0:
-					URL = '../clean_scalar_data.txt'
+					URL = '../scalar-labeled.txt'
 					console.log(0);
 					break;
 				case 1:
@@ -237,6 +237,7 @@
 					.enter()
 					.append("line")
 					.style("stroke", "#aaa")
+					.style("stroke-width", 0.2)
 
 				// Initialize the nodes
 				node = svg
@@ -244,10 +245,20 @@
 					.data(data.nodes)
 					.enter()
 					.append("circle")
-					.attr("r", 4)
+					.attr("r", function(d){
+						switch(d.node_type){
+				case "city":
+					return 12;
+				case "person":
+					return 8;
+				case "cafe":
+					return 2;
+				default:
+					return 1;	
+			}})
 					.style("fill", function(d){
-						switch(d.city){
-				case "True":
+						switch(d.node_type){
+				case "city":
 					return "#e6be8a";
 				case "person":
 					return "#69b3a2";
@@ -266,7 +277,20 @@
 					.data(data.nodes)
 					.enter()
 					.append("text")
-					.text(function(d){return d.name;});
+					.text(function(d){
+						switch(d.node_type){
+				case "city":
+					return d.name;
+				case "person":
+					return d.name;
+				case "cafe":
+					return "";
+				default:
+					return "";	
+			}
+						
+						
+						});
 
 
 
@@ -316,16 +340,16 @@
 
 				nodelabels
 					.attr("x", function(d) { 
-						return d.x + 18; 
+						return d.x + 10; 
 					}) 
-                  	.attr("y", function(d) { return d.y + 4; 
+                  	.attr("y", function(d) { return d.y + 3; 
 					})
 					.attr("font-size", function(d){
-						switch(d.city){
-							case "True":
+						switch(d.node_type){
+							case "city":
 								return 20;
 							default:
-								return 7;
+								return 10;
 						} })
 					
 
