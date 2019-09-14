@@ -164,7 +164,6 @@
 
 		// scrollama event handlers
 		function handleStepEnter(response) {
-			console.log(response)
 			// response = { element, direction, index }
 
 			// add color to current step only
@@ -208,7 +207,6 @@
 		}
 
 		function drawNetwork(current_step_URL) {
-			console.log('stuff!')
 
 			var width = window.innerWidth * 0.75;
 			var height = window.innerHeight * 0.95;
@@ -223,10 +221,8 @@
 				.attr("transform",
 					"translate(" + 50 + "," + 50 + ")");
 
-			console.log('more!')
 
 			d3.json(current_step_URL).then(function (data) {
-				console.log(data.links)
 
 
 
@@ -245,6 +241,29 @@
 					.data(data.nodes)
 					.enter()
 					.append("circle")
+					.on('mouseover', function (d, i) {
+						console.log(d.name);
+						// console.log(d3)
+						// d3.select(this).select("text").style("font-size", 10)
+						nodelabels
+						.style('visibility', function (nl) { 
+							if (nl.id == d.id) {
+								console.log("match!!!")
+								return "visible";
+							} else {
+								// return 0;
+
+							}
+
+
+
+							})
+						
+							
+							 })
+					.on('mouseout', function (d, i) {
+						// d.attr("font-size", 0)
+							})
 					.attr("r", function(d){
 						switch(d.node_type){
 				case "city":
@@ -272,6 +291,7 @@
 					})
 					.style("stroke", "black")
 					.style("stroke-width", 1)
+
 				nodelabels = svg.
 					selectAll("nodelabels") 
 					.data(data.nodes)
@@ -302,12 +322,11 @@
 						.links(data.links) // and this the list of links
 					)
 					.force("charge", d3.forceManyBody().strength(-
-					55)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+					64)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
 					.force("center", d3.forceCenter(width * 0.5, height * 0.4
 					)) // This force attracts nodes to the center of the svg area
 					.on("tick", ticked);
 
-				console.log(simulation);
 			})
 			// This function is run at each iteration of the force algorithm, updating the nodes position.
 
@@ -315,7 +334,6 @@
 
 
 			function ticked() {
-				console.log('ticked')
 				link
 					.attr("x1", function (d) {
 						return d.source.x;
@@ -340,22 +358,27 @@
 
 				nodelabels
 					.attr("x", function(d) { 
-						return d.x + 10; 
+						return d.x + 12; 
 					}) 
-                  	.attr("y", function(d) { return d.y + 3; 
+                  	.attr("y", function(d) { return d.y + 5; 
 					})
 					.attr("font-size", function(d){
 						switch(d.node_type){
 							case "city":
-								return 20;
+								return 24;
 							default:
-								return 10;
+								return 16;
 						} })
-					
+						.attr("visibility", function(d){
+						switch(d.node_type){
+							case "city":
+								return "visible";
+							default:
+								return "hidden";
+						} })					
 
 			}
 		}
-
 
 
 		function init() {
