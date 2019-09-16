@@ -38,7 +38,7 @@
 			position: sticky;
 			width: 100%;
 			margin: 0rem;
-			height: 750px;
+			height: 700;
 			/* -webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0); */
@@ -154,11 +154,11 @@
 		function handleResize() {
 			// 1. update height of step elements
 			// var stepH = Math.floor(window.innerHeight * 1);
-			var stepH = 750;
+			var stepH = 700;
 			step.style('height', stepH + 'px');
 
 			// var figureHeight = window.innerHeight * 1
-			var figureHeight = 750;
+			var figureHeight = 700;
 			// var figureMarginTop = (window.innerHeight - figureHeight) / 2
 			var figureMarginTop = 0;
 			figure
@@ -203,7 +203,7 @@
 		function drawNetwork(current_step_URL) {
 
 			var width = window.innerWidth * 0.75;
-			var height = 750;
+			var height = 700;
 
 			svg = d3.select('figure')
 				.append("svg")
