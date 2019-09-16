@@ -157,6 +157,7 @@
 
 		window.onbeforeunload = function () {
 		window.scrollTo(0, 0);
+		
 		}
 		// using d3 for convenience
 		var main = d3.select('main')
@@ -168,6 +169,8 @@
 
 		// initialize the scrollama
 		var scroller = scrollama();
+		init();
+
 
 		// generic window resize listener event
 		function handleResize() {
@@ -370,12 +373,11 @@
 			// setup resize event
 			window.addEventListener('resize', handleResize);
 
-			drawNetwork(0);
+			// drawNetwork(0);
 
 		}
 
 		// kick things off
-		init();
 	</script>
 </body>
 
