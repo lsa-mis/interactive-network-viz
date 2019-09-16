@@ -141,6 +141,9 @@
 		var step = article.selectAll('.step');
 		var link, node, height, width, svg, nodelabels;
 
+		d3.selectAll("figure > *").remove();
+
+
 		// initialize the scrollama
 		var scroller = scrollama();
 				// kick things off
@@ -200,8 +203,6 @@
 
 			var width = window.innerWidth * 0.75;
 			var height = 1000;
-
-			d3.selectAll("figure > *").remove();
 
 			svg = d3.select('figure')
 				.append("svg")
