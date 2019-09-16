@@ -37,7 +37,7 @@
 			position: sticky;
 			width: 100%;
 			margin: 1rem;
-			height: 1000px;
+			height: 800px;
 			/* -webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0); */
@@ -153,11 +153,11 @@
 		function handleResize() {
 			// 1. update height of step elements
 			// var stepH = Math.floor(window.innerHeight * 1);
-			var stepH = 1000;
+			var stepH = 800;
 			step.style('height', stepH + 'px');
 
 			// var figureHeight = window.innerHeight * 1
-			var figureHeight = 1000;
+			var figureHeight = 800;
 			// var figureMarginTop = (window.innerHeight - figureHeight) / 2
 			var figureMarginTop = 0;
 			figure
@@ -202,7 +202,7 @@
 		function drawNetwork(current_step_URL) {
 
 			var width = window.innerWidth * 0.75;
-			var height = 1000;
+			var height = 800;
 
 			svg = d3.select('figure')
 				.append("svg")
@@ -419,23 +419,23 @@
 
 
 			// 1. force a resize on load to ensure proper dimensions are sent to scrollama
-			handleResize();
+			// handleResize();
 
 			// 2. setup the scroller passing options
 			// 		this will also initialize trigger observations
 			// 3. bind scrollama event handlers (this can be chained like below)
-			scroller.setup({
-					step: '#scrolly article .step',
-					offset: 0.3,
-					debug: false,
-				})
-				.onStepEnter(handleStepEnter)
+			// scroller.setup({
+			// 		step: '#scrolly article .step',
+			// 		offset: 0.3,
+			// 		debug: false,
+			// 	})
+			// 	.onStepEnter(handleStepEnter)
 
 
 			// setup resize event
 			// window.addEventListener('resize', handleResize);
 
-			// drawNetwork(0);
+			drawNetwork('../scalar-labeled.txt');
 
 		}
 
