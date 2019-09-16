@@ -558,7 +558,7 @@ data_4 = {
 				.data(data.nodes)
 				.enter()
 				.append("circle")
-				.attr("r", 16)
+				.attr("r", 14)
 				.style("fill", function(d){
 					switch(d.type){
 			case "city":
@@ -566,7 +566,7 @@ data_4 = {
 			case "person":
 				return "#69b3a2";
 			case "cafe":
-				return "#632597";
+				return "#cccccc";
 			default:
 				return "#69b3a2";	
 		}
@@ -591,7 +591,7 @@ data_4 = {
 					.links(data.links) // and this the list of links
 				)
 				.force("charge", d3.forceManyBody().strength(-
-				1200)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+				700)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
 				.force("center", d3.forceCenter(width * 0.4, height * 0.4
 				)) // This force attracts nodes to the center of the svg area
 				.on("tick", ticked);
@@ -604,7 +604,6 @@ data_4 = {
 
 
 			function ticked() {
-				console.log('ticked')
 				link
 					.attr("x1", function (d) {
 						return d.source.x;
@@ -633,7 +632,7 @@ data_4 = {
 					}) 
                   	.attr("y", function(d) { return d.y + 4; 
 					})
-					.attr("font-size", "12px")
+					.attr("font-size", "14px")
 
 			}
 		}
