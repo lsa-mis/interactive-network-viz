@@ -124,6 +124,8 @@
 				<div class='step' data-step='2'>
 						<h1>Kotik’s</h1>
 						<p>Kotik's Café was a popular café in Warsaw. We've added the café to our graph as a dark purple node.</p>
+						<p></p>
+						<p></p>
 					</div>
 				<div class='step' data-step='3'>
 					<h1>Asch and Reyzen</h1>
@@ -449,7 +451,7 @@ data_4 = {
 		function handleResize() {
 			// 1. update height of step elements
 			var stepH = Math.floor(window.innerHeight * 1);
-			step.style('height', stepH + 'px');
+			// step.style('height', stepH + 'px');
 
 			var figureHeight = window.innerHeight * 0.66
 			var figureMarginTop = (window.innerHeight - figureHeight) / 2
@@ -651,7 +653,7 @@ data_4 = {
 			// 3. bind scrollama event handlers (this can be chained like below)
 			scroller.setup({
 					step: '#scrolly article .step',
-					offset: 0.45,
+					offset: 0.5,
 					debug: false,
 				})
 				.onStepEnter(handleStepEnter)
