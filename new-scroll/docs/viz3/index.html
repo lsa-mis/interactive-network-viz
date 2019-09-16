@@ -241,7 +241,7 @@
 			var width = window.innerWidth * 0.5;
 			var height = window.innerHeight * 0.66;
 
-			d3.select('figure').remove();
+			d3.selectAll("figure > *").remove();.remove();
 
 			svg = d3.select('figure')
 				.append("svg")
