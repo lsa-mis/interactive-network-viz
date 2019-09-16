@@ -4064,7 +4064,7 @@
       "colour": "#2a2a2a",
       "extraData": "no",
       "betweenness_centrality_score": 20,
-      "fx": 200,
+      "fx": 220,
       "fy": 300,
       "node_type": "city"
     },
@@ -4075,8 +4075,8 @@
       "colour": "#2a2a2a",
       "extraData": "no",
       "betweenness_centrality_score": 20,
-      "fx": 700,
-      "fy": 120,
+      "fx": 680,
+      "fy": 140,
       "node_type": "city"
     },
     {
@@ -4107,7 +4107,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 500,
-      "fy": 100,
+      "fy": 105,
       "node_type": "city"
     },
     {
@@ -4177,8 +4177,8 @@
       "colour": "#2a2a2a",
       "extraData": "no",
       "betweenness_centrality_score": 20,
-      "fx": 820,
-      "fy": 250,
+      "fx": 800,
+      "fy": 270,
       "node_type": "city"
     },
     {
@@ -4377,8 +4377,8 @@
       "colour": "#2a2a2a",
       "extraData": "no",
       "betweenness_centrality_score": 20,
-      "fx": 600,
-      "fy": 210,
+      "fx": 560,
+      "fy": 250,
       "node_type": "city"
     },
     {
