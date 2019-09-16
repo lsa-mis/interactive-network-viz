@@ -64,7 +64,7 @@
 			/* margin: 0 auto 2rem auto; */
 			background-color: #3b3b3b;
 			color: #fff;
-			padding: 2rem 4rem 0rem 4rem;
+			padding: 3rem;
 		}
 
 		.step:last-child {
@@ -172,7 +172,7 @@
 		// generic window resize listener event
 		function handleResize() {
 			// 1. update height of step elements
-			var stepH = Math.floor(window.innerHeight * 0.66);
+			var stepH = Math.floor(window.innerHeight * 0.75);
 			step.style('height', stepH + 'px');
 
 			var figureHeight = window.innerHeight * 0.66
