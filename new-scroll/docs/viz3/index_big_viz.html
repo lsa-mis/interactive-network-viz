@@ -353,7 +353,7 @@
 						.links(data.links) // and this the list of links
 					)
 					.force("charge", d3.forceManyBody().strength(-31)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
-					.force("center", d3.forceCenter(width * 0.5, height * 0.3
+					.force("center", d3.forceCenter(width * 0.5, height * 0.5
 					)) // This force attracts nodes to the center of the svg area
 					.on("tick", ticked);
 
