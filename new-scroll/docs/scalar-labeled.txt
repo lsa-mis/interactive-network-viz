@@ -4158,7 +4158,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 820,
-      "fy": 500,
+      "fy": 470,
       "node_type": "city"
     },
     {
