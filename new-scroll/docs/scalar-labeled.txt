@@ -4065,7 +4065,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 220,
-      "fy": 300,
+      "fy": 280,
       "node_type": "city"
     },
     {
@@ -4076,7 +4076,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 680,
-      "fy": 140,
+      "fy": 120,
       "node_type": "city"
     },
     {
@@ -4107,7 +4107,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 500,
-      "fy": 105,
+      "fy": 85,
       "node_type": "city"
     },
     {
@@ -4158,7 +4158,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 820,
-      "fy": 470,
+      "fy": 420,
       "node_type": "city"
     },
     {
@@ -4178,7 +4178,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 800,
-      "fy": 270,
+      "fy": 250,
       "node_type": "city"
     },
     {
@@ -4378,7 +4378,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 560,
-      "fy": 250,
+      "fy": 230,
       "node_type": "city"
     },
     {
