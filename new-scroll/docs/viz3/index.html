@@ -155,10 +155,10 @@
 		
 		// scroll to top
 
-		window.onbeforeunload = function () {
-		window.scrollTo(0, 0);
+		// window.onbeforeunload = function () {
+		// window.scrollTo(0, 0);
 		
-		}
+		// }
 		// using d3 for convenience
 		var main = d3.select('main')
 		var scrolly = main.select('#scrolly');
@@ -204,27 +204,31 @@
 				case 0:
 					URL = '../data_network_0.txt'
 					console.log(0);
+					drawNetwork(URL)
 					break;
 				case 1:
 					URL = '../data_network_1.txt'
 					console.log(1);
+					drawNetwork(URL)
 					break;
 				case 2:
 					URL = '../data_network_2.txt'
 					console.log(2);
+					drawNetwork(URL)
 					break;
 				case 3:
 					URL = '../data_network_3.txt'
 					console.log(3);
+					drawNetwork(URL)
 					break;
 				case 4:
 					URL = '../data_network_4.txt'
 					console.log(4);
+					drawNetwork(URL)
 					break;
 
 				
 			}
-			drawNetwork(URL)
 			// update graphic based on step
 			// figure.select('p').text(response.index + 1);
 		}
