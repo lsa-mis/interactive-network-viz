@@ -37,7 +37,7 @@
 			position: sticky;
 			width: 100%;
 			margin: 1rem;
-			height: 120%;
+			height: 800px;
 			/* -webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0); */
@@ -149,10 +149,12 @@
 		// generic window resize listener event
 		function handleResize() {
 			// 1. update height of step elements
-			var stepH = Math.floor(window.innerHeight * 1.2);
+			// var stepH = Math.floor(window.innerHeight * 1);
+			var stepH = 800;
 			step.style('height', stepH + 'px');
 
-			var figureHeight = window.innerHeight * 1.2
+			// var figureHeight = window.innerHeight * 1
+			var figureHeight = 800;
 			// var figureMarginTop = (window.innerHeight - figureHeight) / 2
 			var figureMarginTop = 0;
 			figure
@@ -197,7 +199,7 @@
 		function drawNetwork(current_step_URL) {
 
 			var width = window.innerWidth * 0.75;
-			var height = window.innerHeight * 1.2;
+			var height = window.innerHeight * 1;
 
 			d3.selectAll("figure > *").remove();
 
@@ -353,7 +355,7 @@
 						.links(data.links) // and this the list of links
 					)
 					.force("charge", d3.forceManyBody().strength(-31)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
-					.force("center", d3.forceCenter(width * 0.5, height * 0.5
+					.force("center", d3.forceCenter(width * 0.5, height * 0.35
 					)) // This force attracts nodes to the center of the svg area
 					.on("tick", ticked);
 
