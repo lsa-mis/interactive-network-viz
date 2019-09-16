@@ -130,7 +130,7 @@
 		// scroll to top
 
 		window.onbeforeunload = function () {
-		window.scrollTo(0, 200);
+		window.scrollTo(0, 0);
 		}
 		// using d3 for convenience
 		var main = d3.select('main')
@@ -149,7 +149,7 @@
 			var stepH = Math.floor(window.innerHeight * 1);
 			step.style('height', stepH + 'px');
 
-			var figureHeight = window.innerHeight * 0.98
+			var figureHeight = window.innerHeight * 1
 			// var figureMarginTop = (window.innerHeight - figureHeight) / 2
 			var figureMarginTop = 0;
 			figure
@@ -193,7 +193,7 @@
 		function drawNetwork(current_step_URL) {
 
 			var width = window.innerWidth * 0.75;
-			var height = window.innerHeight * 0.98;
+			var height = window.innerHeight * 1;
 
 			d3.select('figure').selectAll('svg').remove();
 
