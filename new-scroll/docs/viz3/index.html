@@ -157,6 +157,274 @@
 	<script src='../stickyfill.min.js'></script>
 	<script src='../scrollama.min.js'></script>
 	<script>
+
+
+var data_0, data_1, data_2, data_3, data_4
+
+data_0 = {
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Sholem Asch",
+      "type": "person"
+    }
+  ],
+  "links": [
+  ]
+}
+
+data_1 = {
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Sholem Asch",
+      "type": "person"
+    },
+    {
+      "id": 2,
+      "name": "Warsaw",
+      "type": "city"
+    },
+    {
+      "id": 3,
+      "name": "Berlin",
+      "type": "city"
+    },
+    {
+      "id": 4,
+      "name": "Tel Aviv",
+      "type": "city"
+    },
+    {
+      "id": 5,
+      "name": "New York City",
+      "type": "city"
+    }
+  ],
+  "links": [
+
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 1,
+      "target": 3
+    },
+    {
+      "source": 1,
+      "target" : 4
+    },
+    {
+      "source": 1,
+      "target": 5
+    }
+  ]
+}
+
+data_2 = {
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Sholem Asch",
+      "type": "person"
+    },
+    {
+      "id": 2,
+      "name": "Warsaw",
+      "type": "city"
+    },
+    {
+      "id": 3,
+      "name": "Berlin",
+      "type": "city"
+    },
+    {
+      "id": 4,
+      "name": "Tel Aviv",
+      "type": "city"
+    },
+    {
+      "id": 5,
+      "name": "New York City",
+      "type": "city"
+    },
+    {
+      "id": 6,
+      "name": "Kotik's Café",
+      "type": "cafe"
+    }
+  ],
+  "links": [
+
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 1,
+      "target": 3
+    },
+    {
+      "source": 1,
+      "target" : 4
+    },
+    {
+      "source": 1,
+      "target": 5
+    },
+    {
+      "source": 2,
+      "target": 6
+    }
+  ]
+}
+
+data_3 = {
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Sholem Asch",
+      "type": "person"
+    },
+    {
+      "id": 2,
+      "name": "Warsaw",
+      "type": "city"
+    },
+    {
+      "id": 3,
+      "name": "Berlin",
+      "type": "city"
+    },
+    {
+      "id": 4,
+      "name": "Tel Aviv",
+      "type": "city"
+    },
+    {
+      "id": 5,
+      "name": "New York City",
+      "type": "city"
+    },
+    {
+      "id": 6,
+      "name": "Kotik's Café",
+      "type": "cafe"
+    },
+    {
+      "id": 7,
+      "name": "Avrom Reyzen",
+      "type": "person"
+    }
+  ],
+  "links": [
+
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 1,
+      "target": 3
+    },
+    {
+      "source": 1,
+      "target" : 4
+    },
+    {
+      "source": 1,
+      "target": 5
+    },
+    {
+      "source": 2,
+      "target": 6
+    },
+    {
+      "source": 6,
+      "target": 7
+    }
+  ]
+}
+
+data_4 = {
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Sholem Asch",
+      "type": "person"
+    },
+    {
+      "id": 2,
+      "name": "Warsaw",
+      "type": "city"
+    },
+    {
+      "id": 3,
+      "name": "Berlin",
+      "type": "city"
+    },
+    {
+      "id": 4,
+      "name": "Tel Aviv",
+      "type": "city"
+    },
+    {
+      "id": 5,
+      "name": "New York City",
+      "type": "city"
+    },
+    {
+      "id": 6,
+      "name": "Kotik's Café",
+      "type": "cafe"
+    },
+    {
+      "id": 7,
+      "name": "Avrom Reyzen",
+      "type": "person"
+    }
+  ],
+  "links": [
+
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 1,
+      "target": 3
+    },
+    {
+      "source": 1,
+      "target" : 4
+    },
+    {
+      "source": 1,
+      "target": 5
+    },
+    {
+      "source": 2,
+      "target": 6
+    },
+    {
+      "source": 6,
+      "target": 7
+    },
+    {
+      "source": 2,
+      "target": 7
+    },
+    {
+      "source": 1,
+      "target": 7
+    },
+    {
+      "source": 1,
+      "target": 6}
+  ]
+}
+
 		
 		// scroll to top
 
@@ -204,33 +472,43 @@
 			step.classed('is-active', function (d, i) {
 				return i === response.index;
 			})
-			var URL = "";
+			var data;
 			switch(response.index){
 				case 0:
-					URL = '../data_network_0.txt'
 					console.log(0);
-					drawNetwork(URL)
+					data = data_0;
+					drawNetwork(data);
 					break;
 				case 1:
 					URL = '../data_network_1.txt'
 					console.log(1);
-					drawNetwork(URL)
+					data = data_1;
+					drawNetwork(data);
+
 					break;
 				case 2:
 					URL = '../data_network_2.txt'
 					console.log(2);
-					drawNetwork(URL)
+					data = data_2;
+					drawNetwork(data);
+
 					break;
 				case 3:
 					URL = '../data_network_3.txt'
 					console.log(3);
-					drawNetwork(URL)
+					data = data_3;
+					drawNetwork(data);
+
 					break;
 				case 4:
 					URL = '../data_network_4.txt'
 					console.log(4);
-					drawNetwork(URL)
+					data = data_4;
+					drawNetwork(data);
+
 					break;
+
+				// drawNetwork(data);
 
 				
 			}
@@ -244,7 +522,7 @@
 			});
 		}
 
-		function drawNetwork(current_step_URL) {
+		function drawNetwork(current_data) {
 			console.log('stuff!')
 
 			var width = window.innerWidth * 0.5;
@@ -262,63 +540,64 @@
 
 			console.log('more!')
 
-			d3.json(current_step_URL).then(function (data) {
-				console.log(data.links)
+			var data = current_data
+			// d3.json(current_step_URL).then(function (data) {
+			console.log(data.links)
 
-				// Initialize the links
-				link = svg
-					.selectAll("line")
-					.data(data.links)
-					.enter()
-					.append("line")
-					.style("stroke", "#aaa")
+			// Initialize the links
+			link = svg
+				.selectAll("line")
+				.data(data.links)
+				.enter()
+				.append("line")
+				.style("stroke", "#aaa")
 
-				// Initialize the nodes
-				node = svg
-					.selectAll("circle")
-					.data(data.nodes)
-					.enter()
-					.append("circle")
-					.attr("r", 16)
-					.style("fill", function(d){
-						switch(d.type){
-				case "city":
-					return "#e6be8a";
-				case "person":
-					return "#69b3a2";
-				case "cafe":
-					return "#632597";
-				default:
-					return "#69b3a2";	
-			}
-
-
-					})
-					.style("stroke", "black")
-					.style("stroke-width", 1)
-				nodelabels = svg.
-					selectAll("nodelabels") 
-					.data(data.nodes)
-					.enter()
-					.append("text")
-					.text(function(d){return d.name;});
+			// Initialize the nodes
+			node = svg
+				.selectAll("circle")
+				.data(data.nodes)
+				.enter()
+				.append("circle")
+				.attr("r", 16)
+				.style("fill", function(d){
+					switch(d.type){
+			case "city":
+				return "#e6be8a";
+			case "person":
+				return "#69b3a2";
+			case "cafe":
+				return "#632597";
+			default:
+				return "#69b3a2";	
+		}
 
 
-				var simulation = d3.forceSimulation(data.nodes) // Force algorithm is applied to data.nodes
-					.force("link", d3.forceLink() // This force provides links between nodes
-						.id(function (d) {
-							return d.id;
-						}) // This provide  the id of a node
-						.links(data.links) // and this the list of links
-					)
-					.force("charge", d3.forceManyBody().strength(-
-					1200)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
-					.force("center", d3.forceCenter(width * 0.4, height * 0.4
-					)) // This force attracts nodes to the center of the svg area
-					.on("tick", ticked);
+				})
+				.style("stroke", "black")
+				.style("stroke-width", 1)
+			nodelabels = svg.
+				selectAll("nodelabels") 
+				.data(data.nodes)
+				.enter()
+				.append("text")
+				.text(function(d){return d.name;});
 
-				console.log(simulation);
-			})
+
+			var simulation = d3.forceSimulation(data.nodes) // Force algorithm is applied to data.nodes
+				.force("link", d3.forceLink() // This force provides links between nodes
+					.id(function (d) {
+						return d.id;
+					}) // This provide  the id of a node
+					.links(data.links) // and this the list of links
+				)
+				.force("charge", d3.forceManyBody().strength(-
+				1200)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+				.force("center", d3.forceCenter(width * 0.4, height * 0.4
+				)) // This force attracts nodes to the center of the svg area
+				.on("tick", ticked);
+
+			console.log(simulation);
+			
 			// This function is run at each iteration of the force algorithm, updating the nodes position.
 
 
