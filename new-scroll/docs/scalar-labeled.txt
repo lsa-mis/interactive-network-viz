@@ -4065,7 +4065,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 220,
-      "fy": 280,
+      "fy": 290,
       "node_type": "city"
     },
     {
@@ -4107,7 +4107,7 @@
       "extraData": "no",
       "betweenness_centrality_score": 20,
       "fx": 500,
-      "fy": 85,
+      "fy": 95,
       "node_type": "city"
     },
     {
@@ -4157,8 +4157,8 @@
       "colour": "#2a2a2a",
       "extraData": "no",
       "betweenness_centrality_score": 20,
-      "fx": 820,
-      "fy": 420,
+      "fx": 805,
+      "fy": 430,
       "node_type": "city"
     },
     {
@@ -4177,8 +4177,8 @@
       "colour": "#2a2a2a",
       "extraData": "no",
       "betweenness_centrality_score": 20,
-      "fx": 800,
-      "fy": 250,
+      "fx": 780,
+      "fy": 280,
       "node_type": "city"
     },
     {
@@ -5946,7 +5946,7 @@
     },
     {
       "id": "http://scalar.usc.edu/works/cafs-cities-and-people/cafeteria_davidson.1",
-      "name": "Cafeteria_Davidson",
+      "name": "Cafeteria Davidson",
       "url": "http://scalar.usc.edu/works/cafs-cities-and-people/cafeteria_davidson",
       "colour": "#2a2a2a",
       "extraData": "no",
