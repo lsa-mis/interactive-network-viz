@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Scrollama: Sticky Side Example</title>
+	<title>Browse by People Tool</title>
 	<meta name="description" content="Scrollama: Sticky Side Example">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel='stylesheet' href='../style.css'>
@@ -116,7 +116,8 @@
 			<article>
 				<div class='step' data-step='0'>
 					<h1>Explore the data to your right</h1>
-					<p>Hover over people, cafés, and cities to learn more.</p>
+					<p>Hover over people, cafés, and cities to trace connections across the global café network.</p>
+					<p>If the name is written <b>in bold</b>, click the node for extra information.</p>
 					<p></p>
 					<p><a href="index.html">Back to the tutorial</a></p>
 
@@ -241,6 +242,11 @@
 					.data(data.nodes)
 					.enter()
 					.append("circle")
+					.on('click', function (d, i) {
+						console.log(d.name)
+						if(d.url && d.extraData == "yes" && d.node_type == "person") {
+						window.open(d.url, '_blank')}
+					})
 					.on('mouseover', function (d, i) {
 						// console.log(d.name);
 						// console.log(d3)
@@ -260,6 +266,12 @@
 								// console.log("match!!!")
 								return "visible";
 							} else {
+								// for (l in link){
+								// 	if (l.source === d)
+								// 	{ return "visible";}
+								// 	if (l.target === d)
+								// 	{ return "visible";}
+								// }
 								// return 0;
 
 							}
@@ -267,6 +279,16 @@
 
 
 							})
+						.style('font-weight', function (nl) {
+							if (nl.id == d.id && d.extraData == "yes" && d.node_type == "person")
+							{ return 600;
+							} else {
+								// return pass
+							}
+						})
+
+
+
 						
 						link
 						.style("stroke-width", function(l) {
@@ -283,7 +305,8 @@
 								return "#000";
 							}
 						})
-						
+
+
 							
 							 })
 					.on('mouseout', function (d, i) {
@@ -364,12 +387,10 @@
 						}) // This provide  the id of a node
 						.links(data.links) // and this the list of links
 					)
-					.force("charge", d3.forceManyBody().strength(-58)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+					.force("charge", d3.forceManyBody().strength(-48)) // This adds repulsion between nodes. Play with the -400 for the repulsion strength
 					.force("center", d3.forceCenter(width * 0.5, 320
 					)) // This force attracts nodes to the center of the svg area
-					.force('collision', d3.forceCollide().radius(function(d) {
-    return d.radius*10
-  }))
+					.force("collide", d3.forceCollide().radius(function(d) { return d.r + 0.5; }).iterations(2))
 					.on("tick", ticked);
 
 			})
